@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html class="light" lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Construction Case Studies - Green Scape</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2d5a44","primary-light": "#4a7c63",
+                        "accent": "#d4a373","background-light": "#fdfdfb","background-dark": "#1a1c1b",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#262928",
+                        "text-main": "#2c3330",
+                        "text-sub": "#5c6b63",
+                    },
+                    fontFamily: {
+                        "sans": ["Inter", "Noto Sans JP", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"],
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .group:hover .group-hover\:scale-105 {
+            transform: scale(1.05);
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-gray-200 font-sans antialiased transition-colors duration-200">
+<div class="sticky top-0 z-50 w-full bg-surface-light/95 dark:bg-surface-dark/95 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 shadow-sm">
+<div class="max-w-[1440px] mx-auto px-6 md:px-10 py-4">
+<header class="flex items-center justify-between whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="size-9 text-primary">
+<svg class="w-full h-full" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z" fill="currentColor"></path>
+</svg>
+</div>
+<div>
+<h2 class="font-serif text-2xl font-bold leading-none tracking-tight text-primary-dark">Green Scape</h2>
+<p class="text-[10px] text-text-sub uppercase tracking-widest font-medium">Premium Exterior Design</p>
+</div>
+</div>
+<nav class="hidden md:flex flex-1 justify-end gap-10 items-center">
+<div class="flex items-center gap-8">
+<a class="text-text-main dark:text-gray-300 hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#">Home</a>
+<a class="text-text-main dark:text-gray-300 hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#">About Us</a>
+<a class="text-text-main dark:text-gray-300 hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#">Services</a>
+<a class="text-primary text-sm font-bold border-b-2 border-primary pb-0.5 tracking-wide" href="#">Works</a>
+<a class="text-text-main dark:text-gray-300 hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#">Company</a>
+</div>
+<button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-sm h-11 px-8 bg-primary hover:bg-primary-light text-white text-sm font-medium tracking-wider shadow-lg shadow-primary/20 transition-all duration-300">
+<span class="truncate">お問い合わせ</span>
+</button>
+</nav>
+<div class="md:hidden text-text-main dark:text-white">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</div>
+</header>
+</div>
+</div>
+<main class="w-full flex-grow flex flex-col items-center">
+<section class="w-full bg-surface-light dark:bg-surface-dark pt-20 pb-16 px-6 md:px-10 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1/3 h-full bg-gray-50 dark:bg-gray-800/30 -z-10 skew-x-12 translate-x-20"></div>
+<div class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-end gap-10">
+<div class="flex flex-col gap-6 max-w-3xl">
+<div class="flex items-center gap-3">
+<div class="h-[1px] w-12 bg-primary"></div>
+<span class="text-primary font-serif italic text-lg tracking-wide">Our Masterpieces</span>
+</div>
+<h1 class="text-text-main dark:text-white text-4xl md:text-6xl font-serif font-medium leading-tight tracking-tight">
+                        心を満たす、<br/>上質なランドスケープ。
+                    </h1>
+<p class="text-text-sub dark:text-gray-400 text-base md:text-lg leading-loose max-w-2xl font-light">
+                        時を経るごとに深みを増す庭、日常を豊かに彩るエクステリア。<br class="hidden md:block"/>
+                        お客様一人ひとりの想いを形にした、世界に一つの施工事例をご紹介します。
+                    </p>
+</div>
+<div class="hidden md:flex flex-col items-end text-right gap-1 border-l pl-8 border-gray-200 dark:border-gray-700">
+<p class="text-5xl font-serif text-primary">500<span class="text-3xl">+</span></p>
+<p class="text-xs text-text-sub dark:text-gray-500 uppercase tracking-[0.2em]">Projects Completed</p>
+</div>
+</div>
+</section>
+<section class="w-full bg-white dark:bg-surface-dark border-y border-gray-100 dark:border-gray-800 sticky top-[72px] z-40 shadow-sm">
+<div class="max-w-[1200px] mx-auto px-6 md:px-10 py-4">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="w-full overflow-x-auto scrollbar-hide">
+<div class="flex gap-2 min-w-max">
+<button class="px-5 py-2.5 rounded-full bg-primary text-white text-sm font-medium tracking-wide shadow-md shadow-primary/20 transition-all hover:bg-primary-light">すべて</button>
+<button class="px-5 py-2.5 rounded-full bg-gray-50 dark:bg-gray-800 text-text-sub dark:text-gray-300 border border-transparent hover:border-gray-200 dark:hover:border-gray-600 text-sm font-medium transition-all">新築外構</button>
+<button class="px-5 py-2.5 rounded-full bg-gray-50 dark:bg-gray-800 text-text-sub dark:text-gray-300 border border-transparent hover:border-gray-200 dark:hover:border-gray-600 text-sm font-medium transition-all">リガーデン</button>
+<button class="px-5 py-2.5 rounded-full bg-gray-50 dark:bg-gray-800 text-text-sub dark:text-gray-300 border border-transparent hover:border-gray-200 dark:hover:border-gray-600 text-sm font-medium transition-all">和モダン</button>
+<button class="px-5 py-2.5 rounded-full bg-gray-50 dark:bg-gray-800 text-text-sub dark:text-gray-300 border border-transparent hover:border-gray-200 dark:hover:border-gray-600 text-sm font-medium transition-all">リゾート</button>
+<button class="px-5 py-2.5 rounded-full bg-gray-50 dark:bg-gray-800 text-text-sub dark:text-gray-300 border border-transparent hover:border-gray-200 dark:hover:border-gray-600 text-sm font-medium transition-all">ライティング</button>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0 border-t md:border-t-0 pt-3 md:pt-0 border-gray-100 dark:border-gray-800">
+<div class="relative group">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 material-symbols-outlined text-lg">search</span>
+<input class="pl-10 pr-4 py-2 bg-gray-50 dark:bg-gray-800 border-none rounded-full text-sm w-full md:w-48 focus:ring-1 focus:ring-primary placeholder-gray-400" placeholder="キーワード検索" type="text"/>
+</div>
+<button class="p-2 rounded-full bg-gray-50 dark:bg-gray-800 text-text-sub hover:text-primary transition-colors">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<div class="w-full max-w-[1200px] px-6 md:px-10 py-12 flex flex-col gap-16">
+<div class="w-full">
+<div class="flex items-end justify-between mb-8 pb-4 border-b border-gray-100 dark:border-gray-800">
+<div>
+<span class="text-accent font-bold uppercase tracking-widest text-xs mb-2 block">Award Winning</span>
+<h3 class="text-3xl font-serif text-text-main dark:text-white">Featured Project</h3>
+</div>
+<a class="hidden md:flex items-center gap-1 text-sm font-medium text-text-sub hover:text-primary transition-colors group" href="#">
+                        View Details <span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<div class="lg:col-span-8 group relative overflow-hidden rounded-sm shadow-xl aspect-[16/10]">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" data-alt="luxury modern house exterior with pool at dusk" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC7kg0FVCZwP8rnhGg9LeqkaUPlQreu8-BYSvoUgpxqqtNa5WHKdzdCNvmy7_TI4seE8g2iOcJHG5J2bdR96QMws0OGocZQ09Wk6KYgmjKeHZbW_nN1-Qhpss1UOtNOP9sw8qP1IMB2t5z-Fas5aZ3BUOLKNokRDEZgo57egkjJceqAcw294jGEXr4KjXo4bBQ610w5uQDtxOWQgJxRYAPElP_jqsHa9fLW6pG9QdjVP6A9WQTgB0dKR-EX-_3Uzp6JlJIDhbMT7lU");'></div>
+<div class="absolute top-4 left-4 z-10">
+<span class="px-3 py-1 bg-white/90 dark:bg-surface-dark/90 backdrop-blur text-primary text-xs font-bold uppercase tracking-wider shadow-sm">Pick Up</span>
+</div>
+</div>
+<div class="lg:col-span-4 flex flex-col h-full justify-between gap-6">
+<div>
+<div class="flex gap-2 mb-3">
+<span class="px-2 py-0.5 bg-gray-100 dark:bg-gray-700 text-text-sub dark:text-gray-300 text-[11px] font-medium rounded">新築外構</span>
+<span class="px-2 py-0.5 bg-gray-100 dark:bg-gray-700 text-text-sub dark:text-gray-300 text-[11px] font-medium rounded">プール</span>
+</div>
+<h2 class="text-2xl font-serif font-medium text-text-main dark:text-white mb-4 leading-tight">光と風を感じる、<br/>リゾートライクな中庭のある家</h2>
+<p class="text-sm text-text-sub dark:text-gray-400 leading-relaxed line-clamp-3 mb-4">
+                                プライバシーを確保しながらも、室内との一体感を大切にした中庭デザイン。夜間のライティングにより、昼とは異なる表情を見せる大人のリゾート空間を実現しました。素材には天然石を贅沢に使用し、経年変化も楽しめます。
+                            </p>
+<div class="flex flex-col gap-2 text-sm text-text-sub dark:text-gray-500 border-t border-gray-100 dark:border-gray-800 pt-4">
+<div class="flex justify-between">
+<span>Location</span>
+<span class="font-medium text-text-main dark:text-gray-300">神奈川県横浜市</span>
+</div>
+<div class="flex justify-between">
+<span>Cost</span>
+<span class="font-medium text-text-main dark:text-gray-300">1,500万円〜</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3 mt-auto">
+<div class="aspect-video rounded-sm overflow-hidden bg-gray-100 relative group cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCwDyKQDvghd2pyDniS4cFmReETr18injEkAtrI3qwz6D4zd_5GOR6kqb6WotIQqlW0p4TwzlF4klFOkpIAyoeLUW_RNf4vXgPUlschwenedT9T_6rWiSXLcNDaF9SHhcyzNE-azFqI-80UrzlDbDWT-D2REHB_NiIKC3Ejj52RZjs3aiSxSaC2s5ceWg1aJlF-l5jyu1nZsPdYk_d7i1-ucDllqCFu7Aj9in84kPnsL-zJoKNjvFCSQfAqPFBr3avBMMEKM268oVE");'></div>
+</div>
+<div class="aspect-video rounded-sm overflow-hidden bg-gray-100 relative group cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCOl4ziP0HEHHYOc8fq9x5X8i_2mhT7VcXo142TQQsQWZ04GFUlkKq8A1hqSNdCs0Mo3jSWmieNE8Mwqi6Tdcsgi0aufWn1fQYIqvgS7seJZHXe72shMFMbHK-jc7Zf8x_50PUivU73Q-XFx3fq67YsMlBgn3ijZKnoawkzI2XGyvu6KNT3z_0rLgJn-mOgrdOoHuprOciqezrUrulGIlPSrfFlnF80j1i2sak4WcO4W1DOBgHLC-tqqmqmRH1e2D4J-lAsWxxU5cU");'></div>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="text-white text-xs font-medium border-b border-white pb-0.5">View More</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-2xl font-serif text-text-main dark:text-white mb-8 flex items-end gap-4 border-b border-gray-100 dark:border-gray-800 pb-4">
+                    Latest Projects
+                    <span class="text-sm font-sans font-normal text-text-sub dark:text-gray-500 mb-1">最新の施工事例</span>
+</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+<article class="group cursor-pointer flex flex-col h-full">
+<div class="relative overflow-hidden rounded-sm aspect-[4/3] mb-5 bg-gray-200 shadow-md">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern zen garden" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDzHlqhQXrnU_fNsoiy1A_XyczES-oOwVrLty-AJlTE_T1k5Q2CnpqgIKjfZui0-pI5b-1KSBKbxrizQznuq0_ix8aPUpFudTGRLoz9Zw0S7eLYikSVIh1hC1LOpSR1MtMpL6frW5Lfrhe_vz7CtCa9ZUD9bJZHlcp6Dt4SG2ykoBfwr5Oh-8nkAx59kcniCKUBQT4QzoTG4t9LLF6nNx4lyeuy-8m-mIevj4RV_BJL08abLHTbYWmLAyHH4w7K7jrwhh5zPZwhFMk");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+<div class="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
+<span class="text-xs uppercase tracking-wider font-medium">View Project</span>
+</div>
+<div class="absolute top-4 right-4 bg-white/90 dark:bg-surface-dark/90 px-3 py-1 text-[10px] font-bold tracking-widest uppercase text-text-main dark:text-white shadow-sm">
+                                和モダン
+                            </div>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="text-accent text-xs font-bold uppercase tracking-wider mb-2">Renovation</div>
+<h4 class="text-xl font-serif font-medium text-text-main dark:text-white leading-snug mb-3 group-hover:text-primary transition-colors">
+                                世田谷の静寂を守る、<br/>石と緑の和庭園
+                            </h4>
+<p class="text-text-sub dark:text-gray-400 text-sm leading-relaxed line-clamp-2 mb-4">
+                                既存の石灯籠を活かしつつ、メンテナンスフリーな砂利敷きと植栽のバランスを整え、現代の生活様式に合わせた和の空間へ。
+                            </p>
+<div class="mt-auto pt-4 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between text-xs text-text-sub dark:text-gray-500">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">location_on</span> 東京都世田谷区</span>
+<span>300万円〜</span>
+</div>
+</div>
+</article>
+<article class="group cursor-pointer flex flex-col h-full">
+<div class="relative overflow-hidden rounded-sm aspect-[4/3] mb-5 bg-gray-200 shadow-md">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-700 group-hover:scale-105" data-alt="Sleek modern driveway" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCwDyKQDvghd2pyDniS4cFmReETr18injEkAtrI3qwz6D4zd_5GOR6kqb6WotIQqlW0p4TwzlF4klFOkpIAyoeLUW_RNf4vXgPUlschwenedT9T_6rWiSXLcNDaF9SHhcyzNE-azFqI-80UrzlDbDWT-D2REHB_NiIKC3Ejj52RZjs3aiSxSaC2s5ceWg1aJlF-l5jyu1nZsPdYk_d7i1-ucDllqCFu7Aj9in84kPnsL-zJoKNjvFCSQfAqPFBr3avBMMEKM268oVE");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+<div class="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
+<span class="text-xs uppercase tracking-wider font-medium">View Project</span>
+</div>
+<div class="absolute top-4 right-4 bg-white/90 dark:bg-surface-dark/90 px-3 py-1 text-[10px] font-bold tracking-widest uppercase text-text-main dark:text-white shadow-sm">
+                                オープン
+                            </div>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="text-accent text-xs font-bold uppercase tracking-wider mb-2">New Build</div>
+<h4 class="text-xl font-serif font-medium text-text-main dark:text-white leading-snug mb-3 group-hover:text-primary transition-colors">
+                                開放感あふれる<br/>モダンエントランス
+                            </h4>
+<p class="text-text-sub dark:text-gray-400 text-sm leading-relaxed line-clamp-2 mb-4">
+                                駐車スペースを広く確保しながら、アプローチの動線を美しくデザイン。夜間のライティングにもこだわり、邸宅の顔を演出。
+                            </p>
+<div class="mt-auto pt-4 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between text-xs text-text-sub dark:text-gray-500">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">location_on</span> 神奈川県川崎市</span>
+<span>250万円〜</span>
+</div>
+</div>
+</article>
+<article class="group cursor-pointer flex flex-col h-full">
+<div class="relative overflow-hidden rounded-sm aspect-[4/3] mb-5 bg-gray-200 shadow-md">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-700 group-hover:scale-105" data-alt="Wooden terrace deck" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCOl4ziP0HEHHYOc8fq9x5X8i_2mhT7VcXo142TQQsQWZ04GFUlkKq8A1hqSNdCs0Mo3jSWmieNE8Mwqi6Tdcsgi0aufWn1fQYIqvgS7seJZHXe72shMFMbHK-jc7Zf8x_50PUivU73Q-XFx3fq67YsMlBgn3ijZKnoawkzI2XGyvu6KNT3z_0rLgJn-mOgrdOoHuprOciqezrUrulGIlPSrfFlnF80j1i2sak4WcO4W1DOBgHLC-tqqmqmRH1e2D4J-lAsWxxU5cU");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+<div class="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
+<span class="text-xs uppercase tracking-wider font-medium">View Project</span>
+</div>
+<div class="absolute top-4 right-4 bg-white/90 dark:bg-surface-dark/90 px-3 py-1 text-[10px] font-bold tracking-widest uppercase text-text-main dark:text-white shadow-sm">
+                                テラス
+                            </div>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="text-accent text-xs font-bold uppercase tracking-wider mb-2">Garden</div>
+<h4 class="text-xl font-serif font-medium text-text-main dark:text-white leading-snug mb-3 group-hover:text-primary transition-colors">
+                                週末を楽しむ<br/>ウッドデッキのある暮らし
+                            </h4>
+<p class="text-text-sub dark:text-gray-400 text-sm leading-relaxed line-clamp-2 mb-4">
+                                リビングとフラットに繋がる広々とした天然木のウッドデッキ。プライバシーを守るフェンスも設置し、第二のリビングへ。
+                            </p>
+<div class="mt-auto pt-4 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between text-xs text-text-sub dark:text-gray-500">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">location_on</span> 千葉県市川市</span>
+<span>180万円〜</span>
+</div>
+</div>
+</article>
+<article class="group cursor-pointer flex flex-col h-full">
+<div class="relative overflow-hidden rounded-sm aspect-[4/3] mb-5 bg-gray-200 shadow-md">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-700 group-hover:scale-105" data-alt="Stylish carport" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBSz0Bkb0_U6-5rMMhxuDqZgEKP5XLun4_PTCXj81yZI6jv5u_XbxMuZ7R8DVYBIvkpmurCXQGs7KXpphVNYFV_kFFVR1NDYp2UNCvwYgG9VMcCdjPqJFo8DYr84F0mNK4bjEG5L_N-C4MxmW4k142rY9xt1jRmPbJRkbvUcWgeLy-eHQF5HNY4t0hwr4mLQ4DYMQaqlyRhlWiFUi6A8V_cTRjMAvXVfGYbpWe0Q35B95Cj8WDn3ISgb-u5E_tTybGroxzTLNC8B28");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+<div class="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
+<span class="text-xs uppercase tracking-wider font-medium">View Project</span>
+</div>
+<div class="absolute top-4 right-4 bg-white/90 dark:bg-surface-dark/90 px-3 py-1 text-[10px] font-bold tracking-widest uppercase text-text-main dark:text-white shadow-sm">
+                                車庫
+                            </div>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="text-accent text-xs font-bold uppercase tracking-wider mb-2">Car Space</div>
+<h4 class="text-xl font-serif font-medium text-text-main dark:text-white leading-snug mb-3 group-hover:text-primary transition-colors">
+                                愛車を守る<br/>セミクローズドカーポート
+                            </h4>
+<p class="text-text-sub dark:text-gray-400 text-sm leading-relaxed line-clamp-2 mb-4">
+                                デザイン性の高いカーポートを採用し、建物との一体感を演出。雨の日でも快適な動線を確保しました。
+                            </p>
+<div class="mt-auto pt-4 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between text-xs text-text-sub dark:text-gray-500">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">location_on</span> 埼玉県さいたま市</span>
+<span>200万円〜</span>
+</div>
+</div>
+</article>
+<article class="group cursor-pointer flex flex-col h-full">
+<div class="relative overflow-hidden rounded-sm aspect-[4/3] mb-5 bg-gray-200 shadow-md">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-700 group-hover:scale-105" data-alt="Traditional Japanese tea garden" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAAicglS-gB9uu_iZAViS_Wel7oBEoYHUWaFE0zhSiqRbPyf8t8M6ZpFEDWW-_KLh_EoFMM65ips4LrxYRQ4vtXTJ0uVyLHrGclkcHw1i_XPVWXKFCmbGAOFyhnr26ztkWxLjuan976N1V0exkYxx5Jy2I6n6ViD0q5Ltk_B0yBhAW1Ry3w9R1nZgZrGPyt3YRyeJ_Zxb8LWDDT1ySuBo7FcN-8PWZgHnH0Ad0LbvTDysC6xrgAt4TQeYQ79h-1dNQJAACIdlZHGR4");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+<div class="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
+<span class="text-xs uppercase tracking-wider font-medium">View Project</span>
+</div>
+<div class="absolute top-4 right-4 bg-white/90 dark:bg-surface-dark/90 px-3 py-1 text-[10px] font-bold tracking-widest uppercase text-text-main dark:text-white shadow-sm">
+                                造園
+                            </div>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="text-accent text-xs font-bold uppercase tracking-wider mb-2">Landscaping</div>
+<h4 class="text-xl font-serif font-medium text-text-main dark:text-white leading-snug mb-3 group-hover:text-primary transition-colors">
+                                四季を感じる<br/>茶庭の再生
+                            </h4>
+<p class="text-text-sub dark:text-gray-400 text-sm leading-relaxed line-clamp-2 mb-4">
+                                飛び石と苔のコントラストが美しい、伝統的な茶庭の趣を再現。都心とは思えない静寂な空間を創出しました。
+                            </p>
+<div class="mt-auto pt-4 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between text-xs text-text-sub dark:text-gray-500">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">location_on</span> 東京都文京区</span>
+<span>450万円〜</span>
+</div>
+</div>
+</article>
+<article class="group cursor-pointer flex flex-col h-full">
+<div class="relative overflow-hidden rounded-sm aspect-[4/3] mb-5 bg-gray-200 shadow-md">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern backyard" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC4p4srGOAYrwg_9bNbQrfD-tMQJyyu2pPdz_HVDSi5c2a1nPd20X0_BvZpuwK64zDCkeb-K3OnHBFILcjk-wZlay2d3MtCGcJW-WOBZCbS5yUGDvyAtgsWwztNi4dfA1mN4d6_WH_CKteDPHGVSX-W3iWnfy6LcEoIasOXpA3_ETLYn-tb9xw9AkICC4TBEibwqBd3Cn3PbSKD2n67rgabbLBTQRocDsEdfuU0LM9Q2tJB142BYEdD7rnXBtpka4Zyo4bvzTktxo8");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+<div class="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
+<span class="text-xs uppercase tracking-wider font-medium">View Project</span>
+</div>
+<div class="absolute top-4 right-4 bg-white/90 dark:bg-surface-dark/90 px-3 py-1 text-[10px] font-bold tracking-widest uppercase text-text-main dark:text-white shadow-sm">
+                                リガーデン
+                            </div>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="text-accent text-xs font-bold uppercase tracking-wider mb-2">Re-Garden</div>
+<h4 class="text-xl font-serif font-medium text-text-main dark:text-white leading-snug mb-3 group-hover:text-primary transition-colors">
+                                子供と遊べる<br/>芝生とタイルの庭
+                            </h4>
+<p class="text-text-sub dark:text-gray-400 text-sm leading-relaxed line-clamp-2 mb-4">
+                                雑草対策を兼ねたタイル舗装と、子供が走り回れる人工芝スペースをゾーニング。家族の時間を育む庭へ。
+                            </p>
+<div class="mt-auto pt-4 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between text-xs text-text-sub dark:text-gray-500">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">location_on</span> 千葉県柏市</span>
+<span>150万円〜</span>
+</div>
+</div>
+</article>
+</div>
+<div class="flex justify-center mt-20">
+<button class="group flex items-center gap-3 px-10 py-4 border border-gray-200 dark:border-gray-700 text-text-main dark:text-white text-sm font-medium tracking-widest uppercase transition-all hover:border-primary hover:text-primary bg-white dark:bg-surface-dark shadow-sm hover:shadow-md">
+                        Load More Projects
+                        <span class="material-symbols-outlined transition-transform group-hover:translate-y-1">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+<section class="w-full bg-surface-dark text-white py-24 px-6 md:px-10 relative overflow-hidden">
+<div class="absolute inset-0 opacity-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAAicglS-gB9uu_iZAViS_Wel7oBEoYHUWaFE0zhSiqRbPyf8t8M6ZpFEDWW-_KLh_EoFMM65ips4LrxYRQ4vtXTJ0uVyLHrGclkcHw1i_XPVWXKFCmbGAOFyhnr26ztkWxLjuan976N1V0exkYxx5Jy2I6n6ViD0q5Ltk_B0yBhAW1Ry3w9R1nZgZrGPyt3YRyeJ_Zxb8LWDDT1ySuBo7FcN-8PWZgHnH0Ad0LbvTDysC6xrgAt4TQeYQ79h-1dNQJAACIdlZHGR4"); background-size: cover; background-position: center; filter: grayscale(100%);'></div>
+<div class="absolute inset-0 bg-gradient-to-r from-surface-dark via-surface-dark/95 to-surface-dark/80"></div>
+<div class="max-w-[1000px] mx-auto relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
+<div class="text-center md:text-left">
+<span class="text-accent font-serif italic text-xl mb-4 block">Contact Us</span>
+<h2 class="text-3xl md:text-5xl font-serif font-medium mb-6 leading-tight">
+                        理想の空間づくりを、<br/>ご一緒に。
+                    </h2>
+<p class="text-gray-300 text-base md:text-lg max-w-lg leading-relaxed font-light">
+                        現地調査・お見積もりは無料です。<br/>
+                        経験豊富なデザイナーが、あなただけのプランをご提案します。
+                    </p>
+</div>
+<div class="flex flex-col gap-4 w-full md:w-auto">
+<button class="group relative overflow-hidden w-full md:min-w-[280px] bg-white text-surface-dark py-5 px-8 transition-all hover:bg-gray-100">
+<div class="flex items-center justify-center gap-3 relative z-10">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-bold tracking-widest text-sm">無料相談・見積もり依頼</span>
+</div>
+</button>
+<button class="w-full md:min-w-[280px] border border-white/30 hover:border-white text-white py-5 px-8 transition-all flex items-center justify-center gap-3">
+<span class="material-symbols-outlined">download</span>
+<span class="font-medium tracking-widest text-sm">資料請求（施工事例集）</span>
+</button>
+<p class="text-xs text-center text-gray-500 mt-2">お電話でも受付中: 0120-XXX-XXX (9:00-18:00)</p>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-white dark:bg-surface-dark border-t border-gray-100 dark:border-gray-800 pt-16 pb-8 px-6 md:px-10">
+<div class="max-w-[1200px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+<div class="md:col-span-1">
+<div class="flex items-center gap-2 mb-6">
+<div class="size-6 text-primary">
+<svg class="w-full h-full" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z" fill="currentColor"></path>
+</svg>
+</div>
+<span class="text-xl font-serif font-bold text-text-main dark:text-white">Green Scape</span>
+</div>
+<p class="text-sm text-text-sub dark:text-gray-500 leading-relaxed">
+                        〒107-0062<br/>
+                        東京都港区南青山 2-2-15<br/>
+                        Win Aoyama Bldg.
+                    </p>
+</div>
+<div class="col-span-1">
+<h4 class="font-bold text-text-main dark:text-white mb-4">Sitemap</h4>
+<ul class="flex flex-col gap-2 text-sm text-text-sub dark:text-gray-400">
+<li><a class="hover:text-primary transition-colors" href="#">Home</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Services</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Case Studies</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h4 class="font-bold text-text-main dark:text-white mb-4">Support</h4>
+<ul class="flex flex-col gap-2 text-sm text-text-sub dark:text-gray-400">
+<li><a class="hover:text-primary transition-colors" href="#">FAQ</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h4 class="font-bold text-text-main dark:text-white mb-4">Social</h4>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-text-sub hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-lg">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-text-sub hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-lg">share</span>
+</a>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-gray-100 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-text-sub dark:text-gray-600">
+<p>© 2024 Green Scape Inc. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="hover:text-text-main" href="#">Privacy Policy</a>
+<a class="hover:text-text-main" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html class="light" lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>お問い合わせ - Green Exterior Co.</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3a6953","primary-hover": "#2c5240",
+                        "primary-light": "#eef4f1",
+                        "text-main": "#2c3e36",
+                        "text-sub": "#6b7d76",
+                        "background-light": "#fbfcfb","background-dark": "#1a2621",
+                        "surface-dark": "#24332c",
+                        "accent": "#d4b382",},
+                    fontFamily: {
+                        "display": ["Noto Sans JP", "sans-serif"],
+                        "body": ["Noto Sans JP", "sans-serif"],
+                    },
+                    boxShadow: {
+                        "soft": "0 4px 20px -2px rgba(58, 105, 83, 0.08)",
+                        "card": "0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1)",
+                    },
+                },
+            },
+        }
+    </script>
+<style>::-webkit-scrollbar {
+    width: 8px
+    }
+::-webkit-scrollbar-track {
+    background: transparent
+    }
+::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border-radius: 20px
+    }
+.dark ::-webkit-scrollbar-thumb {
+    background-color: #4b5563
+    }
+html {
+    scroll-behavior: smooth
+    }.form-radio:checked {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDPobIVZRpwhhqHtE42UiKL6hhv1fvweuAzUhbR3IIa3QkoYYrjjOnELgZUukrXuMMhdyMVpnjJO9sCB6ZbJZZglm2dKu3eLuDi6BfbG3u7y3aPCNrDhJl43nXbZRB_Ho_nXRmAfyazivCKoWrh3O9bW7FvtuOibw4rd-WMu6Aq1UDH7qZDuZF94AcsYMCCKaZFF4Roi1kncuLBs9FD56wL042Y55_ZSI7eJWZpVVehXX3VkFn8772KsirfnJNZPBIGJPZLHJ1y3T8)
+    }</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-slate-100 font-body transition-colors duration-300 antialiased">
+<header class="sticky top-0 z-50 w-full bg-white/95 dark:bg-surface-dark/95 backdrop-blur-sm border-b border-gray-100 dark:border-white/5 shadow-sm">
+<div class="max-w-[1120px] mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+<div class="flex items-center gap-3 text-text-main dark:text-white">
+<div class="size-8 sm:size-10 text-primary">
+<svg class="w-full h-full" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<h2 class="text-lg sm:text-xl font-bold leading-none tracking-tight">Green Exterior Co.</h2>
+<span class="text-[10px] sm:text-xs text-text-sub font-medium tracking-wide">上質な庭づくり・外構工事</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex items-center gap-6 lg:gap-8">
+<a class="text-text-main dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors relative group py-1" href="#">
+                    ホーム
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+</a>
+<a class="text-text-main dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors relative group py-1" href="#">
+                    施工事例
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+</a>
+<a class="text-text-main dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors relative group py-1" href="#">
+                    会社概要
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+</a>
+</nav>
+<div class="hidden sm:flex flex-col items-end">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[18px]">phone_in_talk</span>
+<span class="text-xs font-bold">お電話でのご相談</span>
+</div>
+<span class="text-lg font-bold leading-none text-text-main dark:text-white">0120-123-456</span>
+</div>
+</div>
+</div>
+</header>
+<div class="layout-container flex flex-col min-h-screen">
+<div class="w-full bg-primary-light dark:bg-surface-dark border-b border-gray-100 dark:border-white/5 pt-12 pb-16 sm:pt-16 sm:pb-20 relative overflow-hidden">
+<div class="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]" style="background-image: radial-gradient(#3a6953 1px, transparent 1px); background-size: 24px 24px;"></div>
+<div class="max-w-[960px] mx-auto px-6 relative z-10 text-center">
+<p class="text-primary font-bold text-xs sm:text-sm tracking-[0.2em] uppercase mb-4 flex items-center justify-center gap-3">
+<span class="w-8 h-px bg-primary/40"></span>
+                Contact Us
+                <span class="w-8 h-px bg-primary/40"></span>
+</p>
+<h1 class="text-text-main dark:text-white text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-[-0.02em] mb-6">
+                無料相談・お問い合わせ
+            </h1>
+<p class="text-text-sub dark:text-slate-400 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+                お庭のリフォーム、新築外構についてのご相談を承っております。<br class="hidden sm:block"/>
+                お客様の理想の暮らしを実現するため、専門スタッフが丁寧にお話を伺います。
+            </p>
+</div>
+</div>
+<div class="bg-white dark:bg-background-dark py-10 border-b border-gray-100 dark:border-white/5">
+<div class="max-w-[1120px] mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-4 text-center md:text-left">
+<div class="flex items-center gap-3 flex-1 justify-center md:justify-start">
+<div class="size-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg shadow-md shadow-primary/20">1</div>
+<div>
+<p class="text-xs text-text-sub dark:text-slate-400 font-bold">STEP 01</p>
+<p class="text-sm sm:text-base font-bold text-text-main dark:text-white">お問い合わせ</p>
+</div>
+</div>
+<div class="hidden md:block w-12 h-px bg-gray-300 dark:bg-gray-700"></div>
+<div class="flex items-center gap-3 flex-1 justify-center md:justify-start">
+<div class="size-10 rounded-full bg-white border-2 border-primary text-primary flex items-center justify-center font-bold text-lg">2</div>
+<div>
+<p class="text-xs text-text-sub dark:text-slate-400 font-bold">STEP 02</p>
+<p class="text-sm sm:text-base font-bold text-text-main dark:text-white">現地調査・ヒアリング</p>
+</div>
+</div>
+<div class="hidden md:block w-12 h-px bg-gray-300 dark:bg-gray-700"></div>
+<div class="flex items-center gap-3 flex-1 justify-center md:justify-start">
+<div class="size-10 rounded-full bg-white border-2 border-primary text-primary flex items-center justify-center font-bold text-lg">3</div>
+<div>
+<p class="text-xs text-text-sub dark:text-slate-400 font-bold">STEP 03</p>
+<p class="text-sm sm:text-base font-bold text-text-main dark:text-white">プラン・お見積り提示</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-1 justify-center py-12 sm:py-16 px-4 sm:px-6">
+<div class="layout-content-container flex flex-col lg:flex-row gap-10 max-w-[1120px] w-full">
+<div class="flex-1 order-2 lg:order-1">
+<form class="bg-white dark:bg-surface-dark p-6 sm:p-10 rounded-xl shadow-soft dark:shadow-none border border-gray-100 dark:border-white/5 relative">
+<div class="mb-8 pb-4 border-b border-gray-100 dark:border-white/10">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-2xl">edit_square</span>
+<h3 class="text-xl sm:text-2xl font-bold text-text-main dark:text-white">お問い合わせフォーム</h3>
+</div>
+<p class="text-sm text-text-sub dark:text-slate-400">
+                            以下のフォームに必要事項をご入力の上、送信してください。<br/>
+<span class="text-red-600 dark:text-red-400 font-medium">*</span> マークは必須項目です。
+                        </p>
+</div>
+<div class="space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<label class="flex flex-col gap-2">
+<span class="text-text-main dark:text-slate-200 text-sm font-bold flex items-center">
+                                    お名前
+                                    <span class="ml-2 px-2 py-0.5 text-[10px] font-bold text-white bg-red-600 rounded-full">必須</span>
+</span>
+<input class="form-input w-full rounded-lg border-gray-300 dark:border-slate-600 bg-gray-50 dark:bg-slate-800/50 h-12 px-4 text-text-main dark:text-white placeholder:text-gray-400 focus:bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder="例：山田 太郎" required="" type="text"/>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-text-main dark:text-slate-200 text-sm font-bold flex items-center">
+                                    フリガナ
+                                    <span class="ml-2 px-2 py-0.5 text-[10px] font-bold text-white bg-red-600 rounded-full">必須</span>
+</span>
+<input class="form-input w-full rounded-lg border-gray-300 dark:border-slate-600 bg-gray-50 dark:bg-slate-800/50 h-12 px-4 text-text-main dark:text-white placeholder:text-gray-400 focus:bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder="例：ヤマダ タロウ" required="" type="text"/>
+</label>
+</div>
+<label class="flex flex-col gap-2">
+<span class="text-text-main dark:text-slate-200 text-sm font-bold flex items-center">
+                                工事予定地（市区町村まで）
+                                <span class="ml-2 px-2 py-0.5 text-[10px] font-bold text-text-sub bg-gray-200 dark:bg-slate-700 rounded-full">任意</span>
+</span>
+<input class="form-input w-full rounded-lg border-gray-300 dark:border-slate-600 bg-gray-50 dark:bg-slate-800/50 h-12 px-4 text-text-main dark:text-white placeholder:text-gray-400 focus:bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder="例：東京都世田谷区" type="text"/>
+</label>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<label class="flex flex-col gap-2">
+<span class="text-text-main dark:text-slate-200 text-sm font-bold flex items-center">
+                                    メールアドレス
+                                    <span class="ml-2 px-2 py-0.5 text-[10px] font-bold text-white bg-red-600 rounded-full">必須</span>
+</span>
+<input class="form-input w-full rounded-lg border-gray-300 dark:border-slate-600 bg-gray-50 dark:bg-slate-800/50 h-12 px-4 text-text-main dark:text-white placeholder:text-gray-400 focus:bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder="example@email.com" required="" type="email"/>
+<p class="text-xs text-text-sub dark:text-slate-500">
+                                    ※携帯メールアドレスの方はPCからのメール受信許可設定をお願いします。
+                                </p>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-text-main dark:text-slate-200 text-sm font-bold flex items-center">
+                                    電話番号
+                                    <span class="ml-2 px-2 py-0.5 text-[10px] font-bold text-white bg-red-600 rounded-full">必須</span>
+</span>
+<input class="form-input w-full rounded-lg border-gray-300 dark:border-slate-600 bg-gray-50 dark:bg-slate-800/50 h-12 px-4 text-text-main dark:text-white placeholder:text-gray-400 focus:bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder="例：090-1234-5678" required="" type="tel"/>
+</label>
+</div>
+<div class="p-5 bg-primary-light/50 dark:bg-surface-dark border border-primary/10 rounded-lg">
+<span class="text-text-main dark:text-slate-200 text-sm font-bold block mb-3">当ショップからのご連絡方法</span>
+<div class="flex flex-col sm:flex-row gap-4">
+<label class="flex items-center gap-3 cursor-pointer">
+<input checked="" class="form-radio text-primary focus:ring-primary size-5 border-gray-300 bg-white" name="contact_pref" type="radio"/>
+<span class="text-sm font-medium text-text-main dark:text-slate-300">メールでの連絡を希望</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer">
+<input class="form-radio text-primary focus:ring-primary size-5 border-gray-300 bg-white" name="contact_pref" type="radio"/>
+<span class="text-sm font-medium text-text-main dark:text-slate-300">電話での連絡を希望</span>
+</label>
+</div>
+</div>
+<div class="space-y-3">
+<h4 class="text-text-main dark:text-white text-sm font-bold border-l-4 border-primary pl-3">ご相談内容のカテゴリー（複数選択可）</h4>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+<label class="cursor-pointer relative group">
+<input class="peer sr-only" name="project_type" type="checkbox"/>
+<div class="flex flex-col items-center justify-center gap-2 p-4 rounded-lg border border-gray-200 dark:border-slate-600 bg-white dark:bg-slate-800/50 hover:border-primary hover:shadow-md transition-all peer-checked:border-primary peer-checked:bg-primary/5 dark:peer-checked:bg-primary/20 h-28 text-center">
+<span class="material-symbols-outlined text-gray-400 peer-checked:text-primary group-hover:text-primary transition-colors">yard</span>
+<span class="text-sm font-bold text-text-main dark:text-slate-200">新築外構</span>
+</div>
+<div class="absolute top-2 right-2 opacity-0 peer-checked:opacity-100 transition-opacity text-primary">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</div>
+</label>
+<label class="cursor-pointer relative group">
+<input class="peer sr-only" name="project_type" type="checkbox"/>
+<div class="flex flex-col items-center justify-center gap-2 p-4 rounded-lg border border-gray-200 dark:border-slate-600 bg-white dark:bg-slate-800/50 hover:border-primary hover:shadow-md transition-all peer-checked:border-primary peer-checked:bg-primary/5 dark:peer-checked:bg-primary/20 h-28 text-center">
+<span class="material-symbols-outlined text-gray-400 peer-checked:text-primary group-hover:text-primary transition-colors">deck</span>
+<span class="text-sm font-bold text-text-main dark:text-slate-200">リフォーム</span>
+</div>
+<div class="absolute top-2 right-2 opacity-0 peer-checked:opacity-100 transition-opacity text-primary">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</div>
+</label>
+<label class="cursor-pointer relative group">
+<input class="peer sr-only" name="project_type" type="checkbox"/>
+<div class="flex flex-col items-center justify-center gap-2 p-4 rounded-lg border border-gray-200 dark:border-slate-600 bg-white dark:bg-slate-800/50 hover:border-primary hover:shadow-md transition-all peer-checked:border-primary peer-checked:bg-primary/5 dark:peer-checked:bg-primary/20 h-28 text-center">
+<span class="material-symbols-outlined text-gray-400 peer-checked:text-primary group-hover:text-primary transition-colors">garage_home</span>
+<span class="text-sm font-bold text-text-main dark:text-slate-200">カーポート</span>
+</div>
+<div class="absolute top-2 right-2 opacity-0 peer-checked:opacity-100 transition-opacity text-primary">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</div>
+</label>
+<label class="cursor-pointer relative group">
+<input class="peer sr-only" name="project_type" type="checkbox"/>
+<div class="flex flex-col items-center justify-center gap-2 p-4 rounded-lg border border-gray-200 dark:border-slate-600 bg-white dark:bg-slate-800/50 hover:border-primary hover:shadow-md transition-all peer-checked:border-primary peer-checked:bg-primary/5 dark:peer-checked:bg-primary/20 h-28 text-center">
+<span class="material-symbols-outlined text-gray-400 peer-checked:text-primary group-hover:text-primary transition-colors">edit_note</span>
+<span class="text-sm font-bold text-text-main dark:text-slate-200">その他</span>
+</div>
+<div class="absolute top-2 right-2 opacity-0 peer-checked:opacity-100 transition-opacity text-primary">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</div>
+</label>
+</div>
+</div>
+<div class="space-y-2">
+<span class="text-text-main dark:text-slate-200 text-sm font-bold flex items-center">
+                                お問い合わせ内容
+                                <span class="ml-2 px-2 py-0.5 text-[10px] font-bold text-text-sub bg-gray-200 dark:bg-slate-700 rounded-full">任意</span>
+</span>
+<textarea class="form-textarea w-full rounded-lg border-gray-300 dark:border-slate-600 bg-gray-50 dark:bg-slate-800/50 min-h-[160px] p-4 text-text-main dark:text-white placeholder:text-gray-400 focus:bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-y leading-relaxed" placeholder="ご希望のイメージ、現在のお困りごと、ご予算の目安などをご自由にご記入ください。
+（例：雑草対策をして手入れを楽にしたい、子供が遊べる芝生の庭にしたい等）"></textarea>
+</div>
+<div class="bg-primary-light dark:bg-slate-800/30 rounded-lg p-5 border border-primary/10">
+<div class="flex items-start gap-3 mb-4">
+<span class="material-symbols-outlined text-primary mt-0.5">verified_user</span>
+<div>
+<h5 class="text-sm font-bold text-text-main dark:text-white mb-1">個人情報の取り扱いについて</h5>
+<p class="text-xs text-text-sub dark:text-slate-400 leading-relaxed">
+                                        ご入力いただいた個人情報は、お問い合わせへの対応のみに利用し、法令に基づく場合を除き、第三者に提供することはございません。当社の<a class="text-primary underline hover:text-primary-hover" href="#">プライバシーポリシー</a>をご確認ください。
+                                    </p>
+</div>
+</div>
+<div class="flex justify-center">
+<label class="flex items-center gap-3 cursor-pointer select-none py-2">
+<input class="form-checkbox size-5 rounded border-gray-400 text-primary focus:ring-primary" required="" type="checkbox"/>
+<span class="text-sm font-medium text-text-main dark:text-slate-200">
+                                        プライバシーポリシーに同意する
+                                    </span>
+</label>
+</div>
+</div>
+<div class="pt-4 flex justify-center">
+<button class="w-full sm:w-80 h-14 bg-primary hover:bg-primary-hover text-white text-lg font-bold rounded-lg shadow-lg shadow-primary/30 transform active:scale-[0.98] transition-all flex items-center justify-center gap-3 group relative overflow-hidden" type="submit">
+<span class="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
+<span class="material-symbols-outlined relative">send</span>
+<span class="relative">この内容で送信する</span>
+</button>
+</div>
+</div>
+</form>
+</div>
+<div class="w-full lg:w-80 lg:shrink-0 order-1 lg:order-2 space-y-8">
+<div class="sticky top-24 space-y-6">
+<div class="bg-white dark:bg-surface-dark rounded-xl p-6 border-t-4 border-primary shadow-soft relative overflow-hidden">
+<div class="absolute -right-4 -top-4 text-primary/5 dark:text-white/5">
+<span class="material-symbols-outlined text-[120px]">call</span>
+</div>
+<h3 class="text-lg font-bold text-text-main dark:text-white mb-1 relative z-10">お電話でのご相談</h3>
+<p class="text-xs text-text-sub dark:text-slate-400 mb-4 relative z-10">お急ぎの方、フォーム入力が面倒な方はお気軽にお電話ください。</p>
+<div class="bg-primary-light/50 dark:bg-black/20 rounded-lg p-4 text-center mb-4 relative z-10">
+<p class="text-xs font-bold text-primary mb-1 tracking-widest uppercase">Free Dial</p>
+<a class="text-3xl font-black text-text-main dark:text-white hover:text-primary transition-colors font-display tracking-tight flex items-center justify-center gap-1" href="tel:0120123456">
+<span class="material-symbols-outlined text-2xl text-primary">phone_in_talk</span>
+                                0120-123-456
+                            </a>
+</div>
+<div class="space-y-2 relative z-10">
+<div class="flex justify-between items-center text-sm border-b border-dashed border-gray-200 dark:border-gray-700 pb-2">
+<span class="text-text-sub dark:text-slate-400">営業時間</span>
+<span class="font-bold text-text-main dark:text-white">9:00 - 18:00</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-text-sub dark:text-slate-400">定休日</span>
+<span class="font-bold text-text-main dark:text-white">水曜・年末年始</span>
+</div>
+<div class="mt-4 flex items-center gap-2 text-xs text-primary font-medium bg-white dark:bg-surface-dark p-2 rounded border border-primary/20">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+                                土日祝も休まず営業しております
+                            </div>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<div class="flex items-center gap-3 p-4 bg-white dark:bg-surface-dark rounded-xl border border-gray-100 dark:border-white/5 shadow-sm">
+<div class="size-10 rounded-full bg-accent/10 flex items-center justify-center text-yellow-700 dark:text-yellow-500">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-text-main dark:text-white">専門家が対応</h4>
+<p class="text-[10px] text-text-sub dark:text-slate-400">エクステリアプランナーが直接回答</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-4 bg-white dark:bg-surface-dark rounded-xl border border-gray-100 dark:border-white/5 shadow-sm">
+<div class="size-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400">
+<span class="material-symbols-outlined">schedule_send</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-text-main dark:text-white">迅速な返信</h4>
+<p class="text-[10px] text-text-sub dark:text-slate-400">原則24時間以内にご連絡します</p>
+</div>
+</div>
+</div>
+<div class="bg-gray-50 dark:bg-surface-dark p-4 rounded-xl border border-gray-200 dark:border-white/10 text-center">
+<p class="text-sm font-bold text-text-main dark:text-white mb-2">よくあるご質問はこちら</p>
+<a class="text-xs text-primary hover:underline flex items-center justify-center gap-1" href="#faq-section">
+                            Q&amp;Aを確認する <span class="material-symbols-outlined text-[14px]">arrow_downward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-surface-dark py-16 border-t border-gray-100 dark:border-white/5" id="faq-section">
+<div class="max-w-[800px] mx-auto px-6">
+<h2 class="text-2xl font-bold text-text-main dark:text-white text-center mb-10 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">help_outline</span>
+                お問い合わせ前のよくあるご質問
+            </h2>
+<div class="space-y-4">
+<div class="border border-gray-200 dark:border-slate-700 rounded-lg overflow-hidden">
+<button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-slate-800/50 text-left hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors">
+<span class="font-bold text-text-main dark:text-slate-200 text-sm md:text-base">見積もりをお願いするのに費用はかかりますか？</span>
+<span class="material-symbols-outlined text-gray-400">add</span>
+</button>
+<div class="p-5 bg-white dark:bg-surface-dark border-t border-gray-200 dark:border-slate-700">
+<p class="text-sm text-text-sub dark:text-slate-400 leading-relaxed">
+                            いいえ、現地調査からプラン作成、お見積もりの提示までは完全に無料で行っております。契約に至らない場合でも費用は一切いただきませんので、安心してお申し込みください。
+                        </p>
+</div>
+</div>
+<div class="border border-gray-200 dark:border-slate-700 rounded-lg overflow-hidden">
+<button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-slate-800/50 text-left hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors">
+<span class="font-bold text-text-main dark:text-slate-200 text-sm md:text-base">小さな工事でも依頼できますか？</span>
+<span class="material-symbols-outlined text-gray-400">add</span>
+</button>
+<div class="p-5 bg-white dark:bg-surface-dark border-t border-gray-200 dark:border-slate-700">
+<p class="text-sm text-text-sub dark:text-slate-400 leading-relaxed">
+                            はい、もちろんです。植栽1本の手入れから、フェンスの修理、カーポートの設置まで、規模の大小に関わらず承っております。お気軽にご相談ください。
+                        </p>
+</div>
+</div>
+<div class="border border-gray-200 dark:border-slate-700 rounded-lg overflow-hidden">
+<button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-slate-800/50 text-left hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors">
+<span class="font-bold text-text-main dark:text-slate-200 text-sm md:text-base">他社で相見積もりを取っていますが大丈夫ですか？</span>
+<span class="material-symbols-outlined text-gray-400">add</span>
+</button>
+<div class="p-5 bg-white dark:bg-surface-dark border-t border-gray-200 dark:border-slate-700">
+<p class="text-sm text-text-sub dark:text-slate-400 leading-relaxed">
+                            はい、問題ございません。お客様にとって最適なプランを見つけるためにも、比較検討されることをお勧めします。当社の提案力と品質をご確認いただければ幸いです。
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer class="bg-primary-light dark:bg-black/40 py-8 border-t border-primary/10 dark:border-white/5">
+<div class="max-w-[960px] mx-auto px-6 text-center">
+<h3 class="text-lg font-bold text-primary mb-2">Green Exterior Co.</h3>
+<p class="text-text-sub dark:text-slate-500 text-xs mb-4">〒100-0001 東京都千代田区1-1-1 <br class="sm:hidden"/>Tel: 0120-123-456</p>
+<div class="flex justify-center gap-6 mb-6 text-xs text-text-sub dark:text-slate-500">
+<a class="hover:text-primary transition-colors" href="#">会社概要</a>
+<a class="hover:text-primary transition-colors" href="#">プライバシーポリシー</a>
+<a class="hover:text-primary transition-colors" href="#">特定商取引法に基づく表記</a>
+</div>
+<p class="text-xs text-gray-400 dark:text-gray-600">© 2024 Green Exterior Co. All Rights Reserved.</p>
+</div>
+</footer>
+</div>
+
+</body></html>
