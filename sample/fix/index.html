@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"><title>現場のミカタ - 業務用ユニフォームEC</title>
+    <link rel="stylesheet" href="common.css">
+    <style>
+        /* ヘッダー */
+.main-header {
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 1000;
+}
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary);
+}
+.search-container {
+    flex: 1;
+    max-width: 500px;
+    margin: 0 30px;
+    display: flex;
+}
+.search-container input {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid var(--primary);
+    border-radius: 4px 0 0 4px;
+}
+.search-btn {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 0 20px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+/* ヒーローエリア */
+.hero-section {
+    background: linear-gradient(rgba(26, 54, 93, 0.1), rgba(26, 54, 93, 0.4)), url("key.png");
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+    min-height: 768px;
+}
+.hero-content h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+.hero-content p {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 40px;
+}
+
+/* 業種別クイックナビ（UXの肝） */
+.industry-nav {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.nav-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 30px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+.nav-card:hover {
+    background: #fff;
+    color: var(--primary);
+    transform: translateY(-5px);
+}
+.nav-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+    display: block;
+}
+.nav-label {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* 安心訴求セクション */
+.trust-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 30px 0;
+    background: var(--light-bg);
+    border-bottom: 1px solid #eee;
+}
+.trust-item {
+    font-weight: bold;
+    font-size: 14px;
+    color: var(--primary);
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+    .industry-nav {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .hero-content h1 { font-size: 24px; }
+    .search-container { display: none; } /* スマホではヘッダーの検索をアイコン化するか、ヒーロー下に配置 */
+}
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">現場のミカタ</a>
+            <div class="header-actions">
+                <a href="cart.html">🛒 カート</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="hero-section" style="color: #fff; padding: 60px 20px; text-align: center;">
+            <h1><span class="display-none">業種別にすぐ見つかる業務用ユニフォーム</span></h1>
+            <p><span class="display-none">現場特化、最短ルートで選べる。法人対応OK。</span></p>
+            <div class="industry-nav" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 900px; height: auto; margin: 40px auto; padding: 440px 0 0;">
+                <a href="category.html" class="btn btn-outline" style="background: rgba(255,255,255,0.1); color: #fff; border-color: #fff; padding: 30px;">🍳 飲食向け</a>
+                <a href="category.html" class="btn btn-outline" style="background: rgba(255,255,255,0.1); color: #fff; border-color: #fff; padding: 30px;">🏥 医療・介護</a>
+                <a href="category.html" class="btn btn-outline" style="background: rgba(255,255,255,0.1); color: #fff; border-color: #fff; padding: 30px;">🏗️ 工場・建設</a>
+                <a href="category.html" class="btn btn-outline" style="background: rgba(255,255,255,0.1); color: #fff; border-color: #fff; padding: 30px;">👔 オフィス</a>
+            </div>
+        </section>
+        <section class="trust-section">
+        <div class="trust-item">🚚 最短即日出荷</div>
+        <div class="trust-item">🏢 法人後払いOK</div>
+        <div class="trust-item">🧵 刺繍・名入れ対応</div>
+        <div class="trust-item">📋 見積書即時発行</div>
+    </section>
+    </main>
+</body>
+</html>

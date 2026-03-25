@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-1001 抗菌・消臭加工コックコート | 現場のミカタ - 業務用ユニフォームEC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="common.css">
+    <style>
+        /* --- 以前のCSSを継承・統合 --- */
+        :root {
+            --primary: #1A365D;    /* ネイビー */
+            --accent: #007BFF;     /* ブルー */
+            --success: #28A745;    /* グリーン */
+            --warning: #E67E22;    /* オレンジ */
+            --light-bg: #F8F9FA;
+            --border-color: #DEE2E6;
+            --text-main: #333333;
+        }
+
+        body { font-family: 'Noto Sans JP', sans-serif; margin: 0; color: var(--text-main); background-color: #fff; line-height: 1.6; padding-bottom: 100px; /* スマホ下部バー用 */ }
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+
+        /* --- 画像エリア（高精細画像を配置） --- */
+        .product-visual { position: sticky; top: 20px; }
+        
+        /* メイン画像：ズームコンテナ */
+        .main-img-container {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: var(--light-bg);
+            border: 1px solid var(--border-color);
+            overflow: hidden; /* 拡大時に枠からはみ出さない */
+            position: relative;
+            cursor: zoom-in;
+        }
+        .main-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.1s ease-out; /* ズームの動き */
+            transform-origin: center center; /* 拡大の起点 */
+        }
+        
+        /* 即納バッジ */
+        .stock-badge-overlay {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--success);
+            color: #fff;
+            padding: 5px 10px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 2px;
+            z-index: 10;
+        }
+
+        /* サムネイル */
+        .thumb-list { display: flex; gap: 10px; margin-top: 10px; }
+        .thumb {
+            width: 80px;
+            height: 80px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            object-fit: cover;
+            transition: border-color 0.2s;
+        }
+        .thumb.active { border-color: var(--accent); border-width: 2px; }
+
+        /* 詳しいサイズ表を確認するリンク */
+        .size-link { display: inline-block; margin-top: 15px; color: var(--accent); text-decoration: underline; cursor: pointer; font-size: 14px; font-weight: bold; }
+
+        /* --- 以前の注文フォーム・オプションCSS（省略・継承） --- */
+        .product-info h1 { font-size: 24px; margin: 0 0 5px 0; color: var(--primary); }
+        .model-number { color: #666; font-size: 14px; margin-bottom: 20px; }
+        .price-area { background: var(--light-bg); padding: 15px; border-radius: 4px; margin-bottom: 25px; border: 1px solid var(--border-color); }
+        .price-main { font-size: 28px; font-weight: bold; color: #d00; }
+        .price-sub { font-size: 14px; color: #666; }
+
+        /* 数量入力テーブル */
+        .order-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        .order-table th { background: var(--primary); color: white; padding: 10px; font-size: 14px; text-align: center; }
+        .order-table td { border: 1px solid var(--border-color); padding: 12px 10px; text-align: center; vertical-align: middle; }
+        .status-tag { font-size: 12px; font-weight: bold; padding: 2px 6px; border-radius: 2px; }
+        .status-ready { background: #e6f4ea; color: var(--success); }
+        .status-order { background: #fff3e0; color: var(--warning); }
+
+        .qty-input { display: flex; align-items: center; justify-content: center; gap: 5px; }
+        .qty-input input { width: 50px; text-align: center; padding: 5px; border: 1px solid var(--border-color); }
+        .qty-btn { background: #eee; border: 1px solid #ccc; width: 25px; height: 25px; cursor: pointer; }
+
+        /* 刺繍オプション */
+        .option-section { margin: 25px 0; padding: 20px; border: 1px solid var(--border-color); background: #fdfdfd; border-radius: 4px; }
+        .option-title { font-size: 16px; margin: 0 0 15px 0; color: var(--primary); border-bottom: 2px solid var(--primary); display: inline-block; }
+        
+        /* 刺繍サンプル画像 */
+        .option-flex { display: flex; gap: 20px; align-items: flex-start; margin-top: 15px; }
+        .embroidery-sample-img { width: 120px; height: 120px; object-fit: cover; border: 1px solid var(--border-color); }
+        .option-inputs { flex: 1; }
+        
+        /* 以前のカスタムチェックボックスCSS（省略） */
+        .checkbox-container { display: block; position: relative; padding-left: 30px; cursor: pointer; font-size: 15px; font-weight: bold; user-select: none; }
+        .checkbox-container input { position: absolute; opacity: 0; cursor: pointer; }
+        .checkmark { position: absolute; top: 0; left: 0; height: 20px; width: 20px; background-color: #eee; border: 1px solid #ccc; }
+        .checkbox-container input:checked ~ .checkmark { background-color: var(--accent); }
+
+        /* アクションボタン（レスポンス対応） */
+        .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 30px; }
+        .btn { padding: 15px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; font-size: 16px; text-align: center; text-decoration: none; }
+        .btn-cart { background: var(--accent); color: white; grid-column: span 2; }
+        .btn-quote { background: white; color: var(--primary); border: 2px solid var(--primary); }
+        .btn-sample { background: #f0f0f0; color: #333; }
+
+        /* モーダル背景 */
+.modal-overlay {
+    display: none; /* 初期状態は非表示 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+/* モーダル本体 */
+.modal-content {
+    background: #fff;
+    width: 90%;
+    max-width: 650px;
+    border-radius: 8px;
+    overflow: hidden;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-header {
+    background: var(--primary);
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 { font-size: 18px; margin: 0; }
+
+.modal-close {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.modal-body { padding: 20px; }
+
+/* サイズ表のスタイル */
+.size-chart {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+.size-chart th, .size-chart td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+.size-chart th { background: #f4f7f9; }
+.size-chart tr.highlight { background: #fff9db; } /* 推奨サイズなどの強調用 */
+
+.unit-text { text-align: right; font-size: 12px; color: #666; }
+.size-tips {
+    margin-top: 15px;
+    padding: 10px;
+    background: #fdf2f2;
+    border-left: 4px solid #e03131;
+    font-size: 13px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+        /* 法人向け備考 */
+        .b2b-badge { margin-top: 20px; font-size: 13px; color: #666; display: flex; gap: 15px; justify-content: center; }
+
+        /* --- モーダル・レスポンシブCSS（以前のものを継承・省略） --- */
+        
+        /* --- スマホ対応 (メディアクエリ) --- */
+        @media (max-width: 768px) {
+            .container { grid-template-columns: 1fr; padding-bottom: 120px; }
+            .product-visual { position: static; }
+            
+            /* テーブルをカード形式に（以前のCSS） */
+            .order-table thead { display: none; }
+            .order-table tr { display: flex; flex-wrap: wrap; justify-content: space-between; border: 1px solid var(--border-color); margin-bottom: 10px; padding: 10px; }
+            .order-table td { border: none; text-align: left; padding: 5px; }
+            .order-table td:first-child { font-size: 18px; width: 40%; }
+            .order-table td:nth-child(2) { width: 50%; text-align: right; }
+            .order-table td:last-child { width: 100%; border-top: 1px solid #eee; justify-content: center; }
+
+            .option-flex { flex-direction: column; }
+            .embroidery-sample-img { width: 100%; height: auto; aspect-ratio: 1/1; }
+
+            /* 下部固定バー */
+            .actions { position: fixed; bottom: 0; left: 0; width: 100%; background: #fff; padding: 10px; box-shadow: 0 -5px 15px rgba(0,0,0,0.1); z-index: 100; grid-template-columns: 1fr 1fr; margin-top: 0; }
+            .btn-cart { grid-column: span 1; font-size: 14px; }
+            .btn-quote { font-size: 14px; }
+            .btn-sample { display: none; }
+        }
+        /* レスポンシブ */
+@media (max-width: 768px) {
+    .industry-nav {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .hero-content h1 { font-size: 24px; }
+    .search-container { display: none; } /* スマホではヘッダーの検索をアイコン化するか、ヒーロー下に配置 */
+}
+    </style>
+</head>
+<body>
+<header class="main-header">
+    <div class="header-inner">
+        <a href="index.html" class="logo">現場のミカタ</a>
+        <nav class="global-nav">
+            <a href="category.html">飲食向け</a>
+            <a href="category.html">医療・介護</a>
+            <a href="category.html">工場・建設</a>
+        </nav>
+        <div class="header-actions">
+            <a href="cart.html" class="cart-icon">
+                🛒 カート <span id="headerCartCount">0</span>
+            </a>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="product-visual">
+        <div class="main-img-container" id="zoomContainer">
+            <img src="image_8.png" alt="K-1001 コックコート メイン画像" class="main-img" id="mainProductImg">
+            <div class="stock-badge-overlay">即納</div>
+        </div>
+        
+        <div class="thumb-list">
+            <img src="image_8.png" alt="サムネイル1" class="thumb active" onclick="changeImage(this)">
+            <img src="thum02.png" alt="サムネイル2" class="thumb" onclick="changeImage(this)">
+            <img src="thum03.png" alt="サムネイル3" class="thumb" onclick="changeImage(this)">
+        </div>
+        
+        <span class="size-link" id="openSizeChart">📏 詳しいサイズ表を確認する</span>
+    </div>
+
+    <div class="product-info">
+        <h1>K-1001 抗菌・消臭加工コックコート</h1>
+        <div class="model-number">型番：K-1001-WH</div>
+
+        <div class="price-area">
+            <span class="price-main">¥3,850</span> <span class="price-sub">(税込)</span>
+            <div id="discountMessage" style="color: var(--success); font-weight: bold; font-size: 14px; margin-top: 5px;">
+                あと 10 枚の購入で10%OFF適用
+            </div>
+        </div>
+        <table class="order-table">
+            <thead>
+                <tr><th>サイズ</th><th>在庫</th><th>数量</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>S</strong></td>
+                    <td><span class="status-tag status-ready">即納</span></td>
+                    <td><div class="qty-input"><button class="qty-btn" onclick="qtyAdjust(this, -1)">-</button><input type="number" value="0" min="0" oninput="updateTotals()"><button class="qty-btn" onclick="qtyAdjust(this, 1)">+</button></div></td>
+                </tr>
+                <tr>
+                    <td><strong>M</strong></td>
+                    <td><span class="status-tag status-ready">即納</span></td>
+                    <td><div class="qty-input"><button class="qty-btn" onclick="qtyAdjust(this, -1)">-</button><input type="number" value="0" min="0" oninput="updateTotals()"><button class="qty-btn" onclick="qtyAdjust(this, 1)">+</button></div></td>
+                </tr>
+                <tr>
+                    <td><strong>L</strong></td>
+                    <td><span class="status-tag status-order">残りわずか</span></td>
+                    <td><div class="qty-input"><button class="qty-btn" onclick="qtyAdjust(this, -1)">-</button><input type="number" value="0" min="0" oninput="updateTotals()"><button class="qty-btn" onclick="qtyAdjust(this, 1)">+</button></div></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="option-section">
+            <h3 class="option-title">加工オプション</h3>
+            <div class="option-item">
+                <label class="checkbox-container">
+                    <input type="checkbox" id="enableEmbroidery" onchange="toggleEmbroidery(this)">
+                    <span class="checkmark"></span>
+                    刺繍・名入れを希望する（1箇所につき +¥550）
+                </label>
+            </div>
+
+            <div id="embroideryDetails" class="option-details" style="display: none;">
+                <div class="option-flex">
+                    <img src="thum04.png" alt="刺繍サンプル" class="embroidery-sample-img">
+                    <div class="option-inputs">
+                        <label style="font-size:13px; font-weight:bold; display:block; margin-bottom:5px;">刺繍文字</label>
+                        <input type="text" placeholder="例：株式会社 現場のミカタ" style="width:100%; padding:8px; border:1px solid #ddd; box-sizing:border-box;">
+                        <div>
+                            <label>刺繍位置</label>
+                            <select id="embPosition">
+                                <option value="left-chest">左胸</option>
+                                <option value="left-sleeve">左袖</option>
+                                <option value="back">背中襟下</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>糸の色</label>
+                            <select id="embColor">
+                                <option value="white">白</option>
+                                <option value="black">黒</option>
+                                <option value="navy">紺</option>
+                                <option value="gold">金茶</option>
+                            </select>
+                        </div>
+                        <p class="option-note">※刺繍を希望する場合、出荷まで通常+3〜5営業日いただきます。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button class="btn btn-cart" id="addToCartBtn">数量を入力してください</button>
+            <button class="btn btn-quote">PDF見積書を発行</button>
+            <button class="btn btn-sample">サンプル貸出依頼</button>
+        </div>
+
+        <div class="b2b-badge">
+            <span>● 請求書払いOK</span>
+            <span>● 大量注文割引あり</span>
+        </div>
+    </div>
+    <div id="sizeModal" class="modal-overlay">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>K-1001 抗菌・消臭加工コックコート サイズ表</h2>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p class="unit-text">単位：cm（仕上がり寸法）</p>
+                    <table class="size-chart">
+                        <thead>
+                        <tr>
+                        <th>サイズ</th>
+                        <th>適応身長</th>
+                        <th>胸囲</th>
+                        <th>肩幅</th>
+                        <th>着丈</th>
+                        <th>袖丈</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr><td>S</td><td>155-165</td><td>104</td><td>44</td><td>70</td><td>54</td></tr>
+                        <tr class="highlight"><td>M</td><td>165-175</td><td>110</td><td>46</td><td>72</td><td>56</td></tr>
+                        <tr><td>L</td><td>175-185</td><td>116</td><td>48</td><td>74</td><td>58</td></tr>
+                        <tr><td>LL</td><td>180-190</td><td>122</td><td>50</td><td>76</td><td>60</td></tr>
+                        <tr><td>3L</td><td>185-195</td><td>130</td><td>52</td><td>76</td><td>60</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="size-tips">
+                        <p>※ゆったりめのシルエットです。普段お使いのサイズ、または1サイズ下をおすすめします。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            .size-link {
+            display: inline-block;
+            margin-bottom: 10px;
+            color: var(--accent);
+            text-decoration: underline;
+            cursor: pointer;
+          font-size: 14px;
+           font-weight: bold;
+        }
+        </style>
+</div>
+
+<script>
+    // --- 以前のJS機能（数量増減・合計計算・割引ロジック）を統合 ---
+    const UNIT_PRICE = 3500; // 単価（税別）
+    const TAX_RATE = 0.1;
+    const DISCOUNT_THRESHOLD = 10;
+    const DISCOUNT_RATE = 0.1;
+    const EMBROIDERY_PRICE = 500; // 刺繍単価（税別）
+
+    // 数量増減ボタン
+    function qtyAdjust(btn, change) {
+        const input = btn.parentElement.querySelector('input');
+        let value = parseInt(input.value) || 0;
+        value += change;
+        if (value < 0) value = 0;
+        input.value = value;
+        updateTotals();
+    }
+
+    // 刺繍オプションの切り替え
+    function toggleEmbroidery(checkbox) {
+        document.getElementById('embroideryDetails').style.display = checkbox.checked ? 'block' : 'none';
+        updateTotals();
+    }
+
+    // 合計計算ロジック
+    function updateTotals() {
+        const qtyInputs = document.querySelectorAll('.qty-input input');
+        let totalQty = 0;
+        qtyInputs.forEach(input => totalQty += parseInt(input.value) || 0);
+
+        const discountMsg = document.getElementById('discountMessage');
+        let currentUnitPrice = UNIT_PRICE;
+        
+        // 割引判定
+        if (totalQty >= DISCOUNT_THRESHOLD) {
+            currentUnitPrice = UNIT_PRICE * (1 - DISCOUNT_RATE);
+            discountMsg.innerHTML = `★ まとめ買い割引適用中！ (${Math.round(DISCOUNT_RATE * 100)}%OFF)`;
+            discountMsg.style.color = "#28A745";
+        } else {
+            const remaining = DISCOUNT_THRESHOLD - totalQty;
+            discountMsg.innerHTML = `あと ${remaining} 枚の購入で10%OFF適用`;
+            discountMsg.style.color = "#666";
+        }
+
+        // オプション料金
+        const embCheckbox = document.getElementById('enableEmbroidery');
+        let optionTotal = 0;
+        if (embCheckbox.checked && totalQty > 0) {
+            optionTotal = EMBROIDERY_PRICE * totalQty;
+        }
+
+        // 総額計算
+        const totalSubtotal = (currentUnitPrice * totalQty) + optionTotal;
+        const totalWithTax = Math.floor(totalSubtotal * (1 + TAX_RATE));
+
+        // 表示更新
+        document.querySelector('.price-main').innerText = `¥${totalWithTax.toLocaleString()}`;
+        
+        const cartBtn = document.getElementById('addToCartBtn');
+        cartBtn.innerText = totalQty > 0 ? `カートに入れる (${totalQty}点)` : "数量を入力してください";
+        cartBtn.disabled = totalQty === 0;
+        cartBtn.style.opacity = totalQty === 0 ? "0.5" : "1";
+    }
+
+    // 初期計算
+    updateTotals();
+
+    // --- 【新規】画像ギャラリー機能 ---
+    function changeImage(thumb) {
+        // メイン画像を差し替え
+        const mainImg = document.getElementById('mainProductImg');
+        mainImg.src = thumb.src;
+        
+        // アクティブなサムネイルのスタイルを変更
+        document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+        
+        // ズーム位置をリセット
+        mainImg.style.transform = 'scale(1)';
+    }
+
+    // --- 【新規】画像ズーム（ホバー）機能 ---
+    const zoomContainer = document.getElementById('zoomContainer');
+    const mainImg = document.getElementById('mainProductImg');
+
+    zoomContainer.addEventListener('mousemove', (e) => {
+        // マウス位置を取得
+        const rect = zoomContainer.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        // コンテナ内の相対位置（%）を計算
+        const xPercent = (x / rect.width) * 100;
+        const yPercent = (y / rect.height) * 100;
+        
+        // 画像を拡大し、マウス位置に合わせて移動
+        mainImg.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+        mainImg.style.transform = 'scale(2)'; // 2倍に拡大
+    });
+
+    zoomContainer.addEventListener('mouseleave', () => {
+        // マウスが外れたら元に戻す
+        mainImg.style.transform = 'scale(1)';
+    });
+
+    // モーダル制御
+const modal = document.getElementById('sizeModal');
+const btn = document.getElementById('openSizeChart');
+const closeBtn = document.querySelector('.modal-close');
+
+// 開く
+btn.onclick = () => { modal.style.display = 'flex'; };
+
+// 閉じる（×ボタン）
+closeBtn.onclick = () => { modal.style.display = 'none'; };
+
+// 閉じる（背景クリック）
+window.onclick = (event) => {
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+};
+
+// 詳細ページの「カートに入れる」ボタンの処理
+document.getElementById('addToCartBtn').addEventListener('click', () => {
+    const productName = document.querySelector('h1').innerText;
+    const unitPrice = 3500; // 商品単価
+    const embroideryUnitPrice = 500; // 刺繍単価
+    
+    const cartItems = [];
+    let totalQty = 0;
+
+    // 数量の取得
+    document.querySelectorAll('.order-table tbody tr').forEach(row => {
+        const size = row.cells[0].innerText;
+        const qty = parseInt(row.querySelector('input').value) || 0;
+        if (qty > 0) {
+            totalQty += qty;
+            cartItems.push({
+                name: productName,
+                size: size,
+                price: unitPrice,
+                quantity: qty
+            });
+        }
+    });
+
+    if (cartItems.length === 0) {
+        alert("数量を入力してください");
+        return;
+    }
+
+    // --- 加工オプションの取得 ---
+    const embCheckbox = document.getElementById('enableEmbroidery');
+    const embroideryData = {
+        enabled: embCheckbox.checked,
+        text: embCheckbox.checked ? document.querySelector('.option-details input').value : "",
+        unitPrice: embroideryUnitPrice,
+        totalPrice: embCheckbox.checked ? (embroideryUnitPrice * totalQty) : 0
+    };
+
+    // すべてをまとめて保存
+    const orderData = {
+        items: cartItems,
+        embroidery: embroideryData, // オプション情報を追加
+        totalQty: totalQty
+    };
+    
+    localStorage.setItem('uniform_order', JSON.stringify(orderData));
+    location.href = 'cart.html';
+});
+</script>
+
+</body>
+</html>

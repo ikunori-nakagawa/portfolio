@@ -1,0 +1,171 @@
+@charset "UTF-8";
+
+/* ==========================================================================
+   1. デザインシステム（変数定義）
+   ========================================================================== */
+:root {
+    /* メインカラー */
+    --primary-color: #1A365D;    /* 信頼のネイビー */
+    --primary-light: #2A4A7D;
+    --accent-color: #007BFF;     /* 実行のブルー（CTA用） */
+    --accent-hover: #0056b3;
+    
+    /* 状態表示 */
+    --success-color: #28A745;    /* 即納・割引適用 */
+    --warning-color: #E67E22;    /* 残りわずか */
+    --danger-color: #D00000;     /* 削除・エラー */
+    
+    /* 背景・ボーダー */
+    --bg-light: #F8F9FA;         /* 薄いグレー（背景用） */
+    --bg-white: #FFFFFF;
+    --border-color: #DEE2E6;     /* 標準的な境界線 */
+    
+    /* テキスト */
+    --text-main: #333333;
+    --text-muted: #666666;
+    --text-white: #FFFFFF;
+
+    /* レイアウト */
+    --container-width: 1100px;
+    --border-radius: 2px;        /* 誠実さを出すため角丸は最小限 */
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* ==========================================================================
+   2. ベーススタイル
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--text-main);
+    background-color: var(--bg-white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+.display-none{
+    display: none;
+}
+
+/* ==========================================================================
+   3. 共通コンポーネント
+   ========================================================================== */
+
+/* ヘッダー */
+.main-header {
+    border-bottom: 1px solid var(--border-color);
+    background: var(--bg-white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.header-inner {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* ボタン基本スタイル */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    font-weight: bold;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: 0.2s;
+    border: none;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--text-white);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+    text-decoration: none;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    text-decoration: none;
+}
+
+/* 在庫バッジ */
+.badge {
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: var(--border-radius);
+    display: inline-block;
+}
+
+.badge-success { background: #e6f4ea; color: var(--success-color); }
+.badge-warning { background: #fff3e0; color: var(--warning-color); }
+
+/* 価格表示（B2B標準） */
+.price-tag {
+    color: var(--danger-color);
+    font-weight: bold;
+}
+
+.price-tax-label {
+    font-size: 0.75em;
+    color: var(--text-muted);
+    margin-left: 4px;
+}
+
+/* ==========================================================================
+   4. ユーティリティ
+   ========================================================================== */
+.mt-20 { margin-top: 20px; }
+.mb-20 { margin-bottom: 20px; }
+.text-center { text-align: center; }
+.hidden-mobile { display: block; }
+
+@media (max-width: 768px) {
+    .hidden-mobile { display: none; }
+}

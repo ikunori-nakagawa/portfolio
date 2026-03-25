@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カート・お見積り確認 | 現場のミカタ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="common.css">
+    <style>
+        .cart-container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        .page-title { font-size: 24px; margin-bottom: 30px; border-bottom: 3px solid var(--primary-color); padding-bottom: 10px; }
+        .cart-layout { display: grid; grid-template-columns: 1fr 350px; gap: 40px; }
+        
+        /* 明細テーブル */
+        .cart-group { border: 1px solid var(--border-color); border-radius: 4px; padding: 25px; background: #fff; }
+        .cart-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        .cart-table th { text-align: left; font-size: 13px; color: #666; padding-bottom: 12px; border-bottom: 2px solid #eee; }
+        .cart-table td { padding: 15px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+        
+        /* 加工オプション表示エリア */
+        .option-display-box { 
+            background: #f8f9fa; border-left: 4px solid var(--primary-color); 
+            padding: 15px; margin-top: 20px; font-size: 14px; line-height: 1.6;
+        }
+        .option-label { font-weight: bold; color: var(--primary-color); display: block; margin-bottom: 5px; }
+
+        /* サイドバー合計エリア */
+        .summary-box { background: #fff; border: 2px solid var(--primary-color); padding: 25px; border-radius: 8px; position: sticky; top: 20px; }
+        .summary-row { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 14px; }
+        .summary-total { border-top: 1px solid #eee; padding-top: 15px; margin-top: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .total-amount { font-size: 28px; font-weight: bold; color: var(--danger-color); }
+        
+        .btn-checkout { width: 100%; background: var(--accent-color); color: #fff; padding: 18px; font-size: 18px; border: none; font-weight: bold; cursor: pointer; margin-bottom: 10px; }
+        .btn-quote { width: 100%; background: #fff; color: var(--primary-color); border: 2px solid var(--primary-color); padding: 12px; font-weight: bold; cursor: pointer; }
+        .btn-remove { background: none; border: none; color: #cc0000; text-decoration: underline; cursor: pointer; font-size: 12px; }
+
+        @media (max-width: 768px) {
+            .cart-layout { grid-template-columns: 1fr; }
+        }
+
+        /* 印刷用設定（見積書として出力する際） */
+        @media print {
+            .btn-checkout, .btn-remove, header, .cart-actions { display: none !important; }
+            .summary-box { border: none; position: static; }
+            .cart-container { margin: 0; padding: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="header-inner">
+        <a href="index.html" class="logo">現場のミカタ</a>
+        <nav><a href="index.html">← お買い物を続ける</a></nav>
+    </div>
+</header>
+
+<div class="cart-container">
+    <h2 class="page-title">現在のカート・お見積り内容</h2>
+
+    <div class="cart-layout" id="cartWrapper">
+        <div class="cart-main">
+            <div class="cart-group">
+                <table class="cart-table" id="cartTable">
+                    <thead>
+                        <tr>
+                            <th>商品名・サイズ</th>
+                            <th>単価(税抜)</th>
+                            <th>数量</th>
+                            <th>小計(税抜)</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+
+                <div id="optionArea" class="option-display-box" style="display: none;">
+                    <span class="option-label">【加工オプション：名入れ刺繍】</span>
+                    <div id="optionDetailText"></div>
+                </div>
+            </div>
+        </div>
+
+        <aside class="cart-summary">
+            <div class="summary-box">
+                <div class="summary-row">
+                    <span>商品合計(税抜)</span>
+                    <span id="sumProduct">¥0</span>
+                </div>
+                <div class="summary-row">
+                    <span>オプション合計(税抜)</span>
+                    <span id="sumOption">¥0</span>
+                </div>
+                <div class="summary-row" style="border-top: 1px dashed #ccc; padding-top: 10px;">
+                    <span>小計(税抜)</span>
+                    <span id="sumSubtotal">¥0</span>
+                </div>
+                <div class="summary-row">
+                    <span>消費税(10%)</span>
+                    <span id="sumTax">¥0</span>
+                </div>
+                <div class="summary-total">
+                    <span>総合計(税込)</span>
+                    <span class="total-amount" id="sumFinal">¥0</span>
+                </div>
+                
+                <div class="cart-actions" style="margin-top: 20px;">
+                    <button class="btn-checkout">ご注文手続きへ</button>
+                    <button class="btn-quote" onclick="window.print()">📄 この内容で印刷・PDF保存</button>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+    function renderCart() {
+        const rawData = localStorage.getItem('uniform_order');
+        const container = document.getElementById('cartWrapper');
+
+        if (!rawData) {
+            container.innerHTML = "<div style='grid-column:span 2; text-align:center; padding:100px;'>カートは空です。<br><br><a href='index.html' class='btn btn-primary'>商品一覧に戻る</a></div>";
+            return;
+        }
+
+        const order = JSON.parse(rawData);
+        const tbody = document.querySelector('#cartTable tbody');
+        tbody.innerHTML = "";
+
+        let productSubtotal = 0;
+        let totalQty = 0;
+
+        // 商品行の生成
+        order.items.forEach((item, index) => {
+            const lineTotal = item.price * item.quantity;
+            productSubtotal += lineTotal;
+            totalQty += item.quantity;
+
+            const row = `
+                <tr>
+                    <td><strong>${item.name}</strong><br><small>サイズ: ${item.size}</small></td>
+                    <td>¥${item.price.toLocaleString()}</td>
+                    <td>${item.quantity}</td>
+                    <td>¥${lineTotal.toLocaleString()}</td>
+                    <td><button class="btn-remove" onclick="removeItem(${index})">削除</button></td>
+                </tr>
+            `;
+            tbody.insertAdjacentHTML('beforeend', row);
+        });
+
+        // 加工オプションの計算と表示
+        let optionTotal = 0;
+        const optionArea = document.getElementById('optionArea');
+        const optionDetailText = document.getElementById('optionDetailText');
+
+        if (order.embroidery && order.embroidery.enabled) {
+            optionTotal = order.embroidery.unitPrice * totalQty;
+            optionArea.style.display = 'block';
+            optionDetailText.innerHTML = `
+                内容：${order.embroidery.text || "未入力"}<br>
+                明細：¥${order.embroidery.unitPrice.toLocaleString()} × ${totalQty}枚 = <strong>¥${optionTotal.toLocaleString()}(税抜)</strong>
+            `;
+        } else {
+            optionArea.style.display = 'none';
+        }
+
+        // 金額計算
+        const subtotal = productSubtotal + optionTotal;
+        const tax = Math.floor(subtotal * 0.1);
+        const finalTotal = subtotal + tax;
+
+        // 画面反映
+        document.getElementById('sumProduct').innerText = `¥${productSubtotal.toLocaleString()}`;
+        document.getElementById('sumOption').innerText = `¥${optionTotal.toLocaleString()}`;
+        document.getElementById('sumSubtotal').innerText = `¥${subtotal.toLocaleString()}`;
+        document.getElementById('sumTax').innerText = `¥${tax.toLocaleString()}`;
+        document.getElementById('sumFinal').innerText = `¥${finalTotal.toLocaleString()}`;
+    }
+
+    function removeItem(index) {
+        let order = JSON.parse(localStorage.getItem('uniform_order'));
+        order.items.splice(index, 1);
+        
+        if (order.items.length === 0) {
+            localStorage.removeItem('uniform_order');
+        } else {
+            localStorage.setItem('uniform_order', JSON.stringify(order));
+        }
+        renderCart();
+    }
+
+    // 初期化
+    window.onload = renderCart;
+</script>
+
+</body>
+</html>

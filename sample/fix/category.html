@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="common.css">
+    <style>
+        :root {
+            --primary: #1A365D;    /* 信頼のネイビー */
+            --accent: #007BFF;     /* 実行のブルー */
+            --success: #28A745;    /* 在庫あり・即納 */
+            --warning: #E67E22;    /* 残りわずか */
+            --light-bg: #F8F9FA;
+            --border-color: #DEE2E6;
+            --text-main: #333333;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            margin: 0;
+            color: var(--text-main);
+            background-color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+       .plp-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+/* サイドバー */
+.filter-sidebar {
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 4px;
+    height: fit-content;
+}
+.filter-group {
+    margin-bottom: 25px;
+}
+.filter-group h4 {
+    font-size: 15px;
+    margin-bottom: 12px;
+    border-left: 4px solid var(--primary);
+    padding-left: 10px;
+}
+.filter-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+.filter-reset {
+    width: 100%;
+    padding: 10px;
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* 商品グリッド */
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+/* 商品カード */
+.product-card {
+    border: 1px solid #eee;
+    background: #fff;
+    position: relative;
+    transition: box-shadow 0.3s;
+}
+.product-card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.product-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--success);
+    color: #fff;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 2px;
+    z-index: 1;
+}
+.product-img-placeholder {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+}
+.product-details {
+    padding: 15px;
+}
+.product-brand { font-size: 11px; color: #888; margin: 0; }
+.product-name { font-size: 15px; margin: 5px 0; height: 44px; overflow: hidden; }
+.product-id { font-size: 12px; color: #666; margin-bottom: 10px; }
+.product-price { margin-bottom: 10px; }
+.price-tax-in { font-weight: bold; color: #d00; font-size: 18px; }
+.price-tax-ex { font-size: 12px; color: #888; margin-left: 5px; }
+
+.product-tags {
+    display: flex;
+    gap: 10px;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 15px;
+}
+.btn-view-detail {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background: var(--primary);
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    border-radius: 2px;
+}
+/* レスポンシブ */
+@media (max-width: 768px) {
+    .industry-nav {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .hero-content h1 { font-size: 24px; }
+    .search-container { display: none; } /* スマホではヘッダーの検索をアイコン化するか、ヒーロー下に配置 */
+}
+    </style>
+</head>
+<body>
+    <header class="main-header">
+    <div class="header-inner">
+        <a href="index.html" class="logo">現場のミカタ</a>
+        <nav class="global-nav">
+            <a href="category.html">飲食向け</a>
+            <a href="category.html">医療・介護</a>
+            <a href="category.html">工場・建設</a>
+        </nav>
+        <div class="header-actions">
+            <a href="cart.html" class="cart-icon">
+                🛒 カート <span id="headerCartCount">0</span>
+            </a>
+        </div>
+    </div>
+    </header>
+    <div class="plp-container" style="display: flex; max-width: 1100px; margin: 40px auto; gap: 30px;">
+    <aside style="width: 250px;">
+        <h4>絞り込み</h4>
+        <div class="filter-group"><label><input type="checkbox" checked> カフェ・洋食</label></div>
+        <div class="filter-group"><label><input type="checkbox"> ストレッチ性あり</label></div>
+    </aside>
+    <section style="flex: 1;">
+        <h3>カフェ・洋食の検索結果</h3>
+        <div class="product-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+            <div class="product-card" style="border: 1px solid #eee; padding: 15px;">
+                <img src="image_8.png" style="width: 100%;">
+                <h4>K-1001 コックコート</h4>
+                <p class="price-tag">¥3,850 <span class="badge badge-success">即納</span></p>
+                <a href="product.html" class="btn btn-primary" style="width: 100%; margin-top: 10px;">詳細を見る</a>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+</html>
