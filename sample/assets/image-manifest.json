@@ -1,0 +1,37 @@
+[
+  {
+    "file": "assets/hero.jpg",
+    "width": 1672,
+    "height": 941,
+    "original": "assets/originals/hero.png",
+    "source": "AI-generated editorial flower image"
+  },
+  {
+    "file": "assets/bouquet.jpg",
+    "width": 1254,
+    "height": 1254,
+    "original": "assets/originals/bouquet.png",
+    "source": "AI-generated editorial flower image"
+  },
+  {
+    "file": "assets/gerbera.jpg",
+    "width": 1254,
+    "height": 1254,
+    "original": "assets/originals/gerbera.png",
+    "source": "AI-generated editorial flower image"
+  },
+  {
+    "file": "assets/roses.jpg",
+    "width": 1254,
+    "height": 1254,
+    "original": "assets/originals/roses.png",
+    "source": "AI-generated editorial flower image"
+  },
+  {
+    "file": "assets/white-rose.jpg",
+    "width": 1254,
+    "height": 1254,
+    "original": "assets/originals/white-rose.png",
+    "source": "AI-generated editorial flower image"
+  }
+]
