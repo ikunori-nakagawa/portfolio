@@ -1,0 +1,1461 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>LUMÉA｜うるおうたび、もっと好きになる。</title>
+    <meta name="description" content="自然の恵みと美容科学が出会うスキンケア。LUMÉAのブランドサイトデザイン。">
+    <style>
+        :root {
+            --ink: #443f3b;
+            --rose: #d7798b;
+            --paper: #faf6f2;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            background: var(--paper);
+            font: 14px/1.9 "Yu Mincho", "Hiragino Mincho ProN", serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        button {
+            font: inherit;
+            cursor: pointer
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin: 0
+        }
+
+        h1,
+        h2 {
+            font-weight: 500;
+            letter-spacing: .1em;
+            line-height: 1.6
+        }
+
+        h2 {
+            font-size: 28px;
+            margin: 5px 0 18px
+        }
+
+        section {
+            scroll-margin-top: 25px
+        }
+
+        .wrap {
+            max-width: 1280px;
+            margin: auto;
+            padding: 38px 5%
+        }
+
+        .label {
+            color: var(--rose);
+            font-size: 11px;
+            letter-spacing: .17em
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 11px 30px;
+            border: 1px solid transparent;
+            border-radius: 30px;
+            background: linear-gradient(110deg, #d57085, #e3919f);
+            color: white;
+            font-size: 12px;
+            letter-spacing: .1em;
+            box-shadow: 0 5px 16px #b75e7014;
+            transition: transform .35s, box-shadow .35s, filter .35s;
+        }
+
+        .pill .arrow {
+            transition: transform .35s
+        }
+
+        .pill:active {
+            transform: translateY(0)
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid #a54e65;
+            outline-offset: 5px;
+        }
+
+        header {
+            position: absolute;
+            inset: 0 0 auto;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 22px 4%;
+        }
+
+        .logo {
+            font-size: 29px;
+            letter-spacing: .2em;
+            line-height: 1
+        }
+
+        .logo small {
+            display: block;
+            font-size: 7px;
+            letter-spacing: .05em;
+            margin-top: 7px
+        }
+
+        nav {
+            display: flex;
+            gap: 50px;
+            font: bold 12px Georgia, serif;
+            color: black;
+        }
+
+        header .pill {
+            padding: 7px 20px;
+            font-size: 10px
+        }
+
+        .menu {
+            display: none
+        }
+
+        /* 写真の微細な動きとパララックスを別レイヤーにする */
+        .hero {
+            position: relative;
+            min-height: 460px;
+            isolation: isolate;
+            overflow: hidden;
+            background: #eaf0f3;
+        }
+
+        .hero-background {
+            position: absolute;
+            inset: -35px;
+            z-index: -3;
+            transform: translate3d(0, var(--parallax, 0px), 0);
+        }
+
+        .hero-photo {
+            width: 100%;
+            height: 100%;
+            background: url("hero.png") center/cover;
+        }
+
+        .hero:before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            background: linear-gradient(90deg, #f8f6f18c, transparent 48%,
+                    transparent 83%, #edf1f58c);
+        }
+
+        .hero:after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 55px;
+            z-index: 2;
+            pointer-events: none;
+            background: linear-gradient(transparent, #f7e9e2);
+        }
+
+        .hero .wrap {
+            position: relative;
+            padding-top: 125px;
+            padding-bottom: 55px;
+        }
+
+        .hero h1 {
+            font-size: clamp(25px, 3vw, 40px);
+            max-width: 52%;
+            margin-bottom: 16px;
+        }
+
+        .copy-line {
+            display: block
+        }
+
+        .hero-text {
+            max-width: 44%;
+            font-size: 12px;
+            letter-spacing: .07em;
+            margin-bottom: 22px;
+        }
+
+        .badges {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .badges span {
+            padding: 5px 12px;
+            border: 1px solid #fff9;
+            border-radius: 25px;
+            background: #ffffffa6;
+            font-size: 10px;
+        }
+
+        .hero-side {
+            position: absolute;
+            top: 30%;
+            right: 0.5%;
+            width: 14%;
+            font-size: clamp(12px, .95vw, 13px);
+            line-height: 2;
+            letter-spacing: .08em;
+            font-weight: bold;
+        }
+
+        .hero-side em {
+            display: block;
+            margin-top: 20px;
+            font: italic 24px/1.3 Georgia, serif;
+        }
+
+        .scroll-cue {
+            position: absolute;
+            right: 4%;
+            bottom: 30px;
+            z-index: 3;
+            font: 9px sans-serif;
+            letter-spacing: .15em;
+            writing-mode: vertical-rl;
+        }
+
+        .scroll-cue:after {
+            content: "";
+            display: block;
+            height: 40px;
+            width: 1px;
+            margin: 12px auto 0;
+            background: #8f8280;
+            transform-origin: top;
+        }
+
+        /* 花びらは写真とは独立した装飾 */
+        .petals {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden
+        }
+
+        .petal {
+            position: absolute;
+            top: -12%;
+            left: var(--left);
+            width: var(--size);
+            height: calc(var(--size) * .65);
+            border-radius: 75% 20% 70% 25%;
+            background: linear-gradient(135deg, #fff8f5e6, #edabb8b3);
+            opacity: 0;
+            filter: blur(var(--blur));
+        }
+
+        /* スクロール表示：JavaScript無効時も本文は表示 */
+        .js [data-reveal] {
+            opacity: 0;
+            transform: translateY(18px);
+            transition:
+                opacity 1s ease var(--delay, 0ms),
+                transform 1s cubic-bezier(.2, .7, .2, 1) var(--delay, 0ms);
+        }
+
+        .js [data-reveal].visible {
+            opacity: 1;
+            transform: none
+        }
+
+        /* アニメーションが許可された場合のみ動かす */
+        @media (prefers-reduced-motion:no-preference) {
+            .hero-photo {
+                animation: photo-drift 16s ease-in-out infinite alternate
+            }
+
+            .petal {
+                animation: petal-fall var(--duration) linear infinite;
+                animation-delay: var(--start);
+            }
+
+            .scroll-cue:after {
+                animation: scroll-line 2.6s ease-in-out infinite
+            }
+        }
+
+        @keyframes photo-drift {
+            from {
+                transform: scale(1.025) translate3d(-.3%, 0, 0)
+            }
+
+            to {
+                transform: scale(1.055) translate3d(.4%, -.4%, 0)
+            }
+        }
+
+        @keyframes petal-fall {
+            0% {
+                opacity: 0;
+                transform: translate3d(-15px, -30px, 0) rotate(0deg)
+            }
+
+            12% {
+                opacity: .65
+            }
+
+            52% {
+                transform: translate3d(45px, 280px, 0) rotate(130deg)
+            }
+
+            88% {
+                opacity: .5
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate3d(10px, 580px, 0) rotate(260deg)
+            }
+        }
+
+        @keyframes scroll-line {
+
+            0%,
+            100% {
+                transform: scaleY(.65);
+                opacity: .4
+            }
+
+            50% {
+                transform: scaleY(1);
+                opacity: 1
+            }
+        }
+
+        @media (hover:hover) {
+            .pill:hover {
+                transform: translateY(-2px);
+                filter: brightness(1.035);
+                box-shadow: 0 9px 24px #b75e7026;
+            }
+
+            .pill:hover .arrow {
+                transform: translateX(4px)
+            }
+        }
+
+        /* セクション */
+        .feature {
+            position: relative;
+            min-height: 340px;
+            background: url("bottle.png") center/cover;
+        }
+
+        .feature:after {
+            content: "";
+            position: absolute;
+            inset: auto 0 0;
+            height: 35px;
+            background: linear-gradient(transparent, #e7eff5);
+        }
+
+        .feature .wrap {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1.25fr .65fr;
+            align-items: center;
+            min-height: 340px;
+        }
+
+        .feature h2 {
+            font-size: 32px
+        }
+
+        .feature p {
+            font-size: 12px;
+            margin-bottom: 18px
+        }
+
+        .outline {
+            display: inline-block;
+            border: 1px solid #aaa;
+            border-radius: 25px;
+            padding: 5px 20px;
+            font-size: 12px
+        }
+
+        .benefits {
+            grid-column: 3;
+            background: #ffffff85;
+            border-radius: 8px;
+            padding: 10px 15px
+        }
+
+        .benefits p {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 15px 0;
+            font-size: 11px
+        }
+
+        .benefits b {
+            display: grid;
+            place-items: center;
+            min-width: 55px;
+            height: 55px;
+            border: 1px solid #aaa;
+            border-radius: 50%;
+            font: 20px Georgia, serif;
+        }
+
+        .photo {
+            width: 100%;
+            aspect-ratio: 1;
+            background: url("assets.png");
+            background-size: 400% 400%;
+            background-position: var(--x) var(--y);
+        }
+
+        .visual {
+            position: relative;
+            aspect-ratio: 1.6;
+            overflow: hidden;
+            border-radius: 6px
+        }
+
+        .visual .photo {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%)
+        }
+
+        .concept {
+            position: relative;
+            overflow: hidden;
+            background: #e7eff5
+        }
+
+        .concept-image {
+            position: absolute;
+            inset: 0;
+            overflow: hidden
+        }
+
+        .concept-image .photo {
+            position: absolute;
+            right: 8%;
+            top: 50%;
+            width: 50%;
+            transform: translateY(-50%);
+            -webkit-mask-image: linear-gradient(90deg, transparent, black 25%, black 80%, transparent);
+            mask-image: linear-gradient(90deg, transparent, black 25%, black 80%, transparent);
+        }
+
+        .concept .wrap {
+            position: relative;
+            min-height: 300px
+        }
+
+        .concept h2 {
+            max-width: 53%;
+            font-size: 31px
+        }
+
+        .concept p {
+            max-width: 53%;
+            font-size: 12px;
+            line-height: 2.2
+        }
+
+        .concept-side {
+            position: absolute;
+            top: 30%;
+            left: 95%;
+            width: 14%;
+            font-size: clamp(12px, .95vw, 13px);
+            line-height: 2;
+            letter-spacing: .08em;
+            font-weight: bold;
+        }
+
+        .section-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+            margin-bottom: 18px
+        }
+
+        .section-head p {
+            font-size: 11px;
+            max-width: 450px
+        }
+
+        .grid4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px
+        }
+
+        .grid3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px
+        }
+
+        .products {
+            background: linear-gradient(120deg, #f4e6e1, #fcf9f6, #f6e5df)
+        }
+
+        .card {
+            background: #ffffffa8;
+            border-radius: 8px;
+            overflow: hidden
+        }
+
+        .product {
+            padding: 9px 9px 16px
+        }
+
+        .product h3 {
+            font-size: 12px;
+            margin: 12px 4px 7px
+        }
+
+        .product p {
+            font-size: 11px;
+            margin: 0 4px 10px
+        }
+
+        .tags {
+            display: flex;
+            gap: 6px;
+            margin: 0 4px 10px;
+            flex-wrap: wrap
+        }
+
+        .tags span {
+            border: 1px solid #d2c7bf;
+            border-radius: 15px;
+            padding: 0 8px;
+            font-size: 9px
+        }
+
+        .price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 4px;
+            font: bold 13px sans-serif
+        }
+
+        .price small {
+            font-size: 9px;
+            font-weight: normal
+        }
+
+        .price a {
+            display: grid;
+            place-items: center;
+            width: 23px;
+            height: 23px;
+            border: 1px solid #aaa;
+            border-radius: 50%
+        }
+
+        .how {
+            background: linear-gradient(110deg, #f7e9e3, #fcf9f6)
+        }
+
+        .step .visual {
+            aspect-ratio: 2.7
+        }
+
+        .step-body {
+            display: flex;
+            gap: 13px;
+            padding: 13px
+        }
+
+        .step-body b {
+            min-width: 65px;
+            border-right: 1px solid #ddd;
+            font-size: 16px;
+            font-weight: normal
+        }
+
+        .step-body small {
+            display: block;
+            color: var(--rose);
+            font-size: 9px
+        }
+
+        .step-body p {
+            font-size: 11px
+        }
+
+        .ingredients {
+            background: linear-gradient(110deg, #f4e7e3, #e8f0f4, #eef3f1)
+        }
+
+        .ingredient .visual {
+            aspect-ratio: 3
+        }
+
+        .ingredient .body {
+            padding: 12px 14px
+        }
+
+        .ingredient h3 {
+            font-size: 14px
+        }
+
+        .ingredient p {
+            font-size: 11px
+        }
+
+        .results {
+            background: #faf1eb
+        }
+
+        .person {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            align-items: center
+        }
+
+        .person .visual {
+            aspect-ratio: 1.3
+        }
+
+        .person h3 {
+            font: bold 14px Georgia, serif
+        }
+
+        .person p {
+            font-size: 11px
+        }
+
+        .notice {
+            text-align: center;
+            font-size: 9px;
+            margin-top: 18px
+        }
+
+        .reviews {
+            background: linear-gradient(110deg, #f5e8e3, #f0eeeb)
+        }
+
+        .review {
+            padding: 17px
+        }
+
+        .review-top {
+            display: flex;
+            align-items: center;
+            gap: 14px
+        }
+
+        .review .photo {
+            width: 70px;
+            min-width: 70px;
+            border-radius: 50%
+        }
+
+        .review h3 {
+            font-size: 12px
+        }
+
+        .review p {
+            font-size: 11px;
+            margin-top: 12px
+        }
+
+        .stars {
+            color: #df9a28;
+            letter-spacing: 2px
+        }
+
+        .diagnosis {
+            background: linear-gradient(120deg, #f6dfdc, #f2ecea, #f5dcd8)
+        }
+
+        .diagnosis .wrap {
+            display: grid;
+            grid-template-columns: 1.25fr 1fr .8fr;
+            gap: 20px;
+            align-items: center
+        }
+
+        .diagnosis h2 {
+            font-size: 24px
+        }
+
+        .diagnosis p {
+            font-size: 11px;
+            margin-bottom: 18px
+        }
+
+        .quiz {
+            background: #fff9;
+            border-radius: 8px;
+            padding: 22px;
+            text-align: center
+        }
+
+        .quiz-options {
+            display: flex;
+            justify-content: center;
+            gap: 7px;
+            flex-wrap: wrap
+        }
+
+        .quiz button {
+            background: #fff9;
+            border: 1px solid #cfb5b8;
+            border-radius: 25px;
+            padding: 9px;
+            font-size: 11px
+        }
+
+        .quiz button:hover {
+            background: #f5dce2
+        }
+
+        .quiz small {
+            display: block;
+            font-size: 10px;
+            margin-top: 12px
+        }
+
+        .news {
+            background: #faf5ef
+        }
+
+        .news-card {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 10px
+        }
+
+        .news-card .photo {
+            width: 95px;
+            min-width: 95px;
+            border-radius: 5px
+        }
+
+        .news-card time {
+            font-size: 9px
+        }
+
+        .news-card h3 {
+            font-size: 11px
+        }
+
+        .news-card p {
+            font-size: 10px
+        }
+
+        footer {
+            background: linear-gradient(110deg, #e7d0c8, #f4e6df, #e7cec7);
+            padding: 35px 5%
+        }
+
+        .footer-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 10px
+        }
+
+        footer p {
+            text-align: center;
+            font-size: 10px;
+            margin-top: 25px
+        }
+
+        .demo {
+            background: #eee3dd;
+            padding: 12px;
+            font-size: 10px;
+            text-align: center
+        }
+
+        @media(max-width:950px) {
+            nav {
+                gap: 12px
+            }
+
+            header>.pill {
+                display: none
+            }
+
+            .hero-side {
+                font-size: 9px;
+                width: 14%;
+                right: 2%
+            }
+
+            .hero-side em {
+                font-size: 18px
+            }
+
+            .feature .wrap {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .benefits {
+                display: none
+            }
+
+            .section-head {
+                flex-wrap: wrap
+            }
+
+            .diagnosis .wrap {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .diagnosis .wrap>.photo {
+                display: none
+            }
+
+            .news .grid3 {
+                grid-template-columns: 1fr
+            }
+        }
+
+        @media(max-width:600px) {
+            .wrap {
+                padding: 30px 22px
+            }
+
+            header {
+                padding: 18px 20px
+            }
+
+            .logo {
+                font-size: 24px
+            }
+
+            .menu {
+                display: block;
+                border: 1px solid #ccc;
+                background: #fff9;
+                border-radius: 20px;
+                padding: 5px 12px
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                right: 15px;
+                top: 65px;
+                flex-direction: column;
+                gap: 18px;
+                background: #fffefbf2;
+                padding: 22px;
+                border-radius: 10px
+            }
+
+            nav.open {
+                display: flex
+            }
+
+            .hero {
+                min-height: 0;
+                background: #faf6f3
+            }
+
+            .hero-background {
+                inset: -20px -20px auto;
+                height: 370px
+            }
+
+            .hero-photo {
+                background-position: 68% center
+            }
+
+            .hero:before {
+                background: linear-gradient(0deg, #faf6f3 0%, #faf6f3 38%, transparent 70%)
+            }
+
+            .hero .wrap {
+                padding: 330px 22px 20px
+            }
+
+            .hero h1 {
+                max-width: 100%;
+                font-size: 25px
+            }
+
+            .hero-text {
+                max-width: 100%;
+                font-size: 11px
+            }
+
+            .hero-side {
+                position: relative;
+                inset: auto;
+                width: auto;
+                padding: 0 22px 30px;
+                font-size: 11px
+            }
+
+            .hero-side em {
+                font-size: 22px;
+                margin-top: 10px
+            }
+
+            .scroll-cue {
+                display: none
+            }
+
+            h2 {
+                font-size: 23px
+            }
+
+            .feature {
+                padding-top: 230px;
+                background-position: 65% top;
+                background-size: auto 300px;
+                background-repeat: no-repeat;
+                background-color: #f5e3dc
+            }
+
+            .feature .wrap {
+                display: block;
+                min-height: 0;
+                background: linear-gradient(0deg, #f5e3dc, #f5e3dcdd)
+            }
+
+            .feature h2 {
+                font-size: 27px
+            }
+
+            .concept {
+                padding-top: 220px
+            }
+
+            .concept-image {
+                height: 245px
+            }
+
+            .concept-image .photo {
+                width: 100%;
+                right: 0;
+                transform: translateY(-45%)
+            }
+
+            .concept .wrap {
+                min-height: 0;
+                background: linear-gradient(0deg, #e7eff5 90%, #e7eff5e6)
+            }
+
+            .concept h2,
+            .concept p {
+                max-width: 100%
+            }
+
+            .concept h2 {
+                font-size: 24px
+            }
+
+            .concept p {
+                font-size: 11px
+            }
+
+            .concept-side {
+                position: static;
+                width: auto;
+                margin-top: 20px;
+                font-size: 13px
+            }
+
+            .grid4 {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px
+            }
+
+            .grid3 {
+                grid-template-columns: 1fr
+            }
+
+            .product h3 {
+                font-size: 11px
+            }
+
+            .product p {
+                font-size: 10px
+            }
+
+            .person {
+                grid-template-columns: 135px 1fr
+            }
+
+            .diagnosis .wrap {
+                display: block
+            }
+
+            .quiz {
+                margin-top: 22px
+            }
+
+            .footer-row {
+                flex-direction: column;
+                align-items: flex-start
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            html {
+                scroll-behavior: auto
+            }
+
+            *,
+            *:before,
+            *:after {
+                animation: none !important;
+                transition: none !important
+            }
+
+            .hero-background {
+                transform: none !important
+            }
+
+            .js [data-reveal] {
+                opacity: 1;
+                transform: none
+            }
+
+            .petals {
+                display: none
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a class="logo" href="#top">LUMÉA<small>SKIN RITUAL FOR A BRIGHTER YOU</small></a>
+        <button class="menu" aria-controls="nav" aria-expanded="false">MENU</button>
+        <nav id="nav" aria-label="メインメニュー">
+            <a href="#products">PRODUCT</a><a href="#concept">CONCEPT</a>
+            <a href="#how">STORY</a><a href="#ingredients">INGREDIENTS</a>
+            <a href="#reviews">REVIEWS</a><a href="#news">NEWS</a>
+        </nav>
+        <a class="pill" href="#diagnosis">今すぐはじめる <span class="arrow">→</span></a>
+    </header>
+
+    <main>
+        <section class="hero" id="top">
+            <div class="hero-background" aria-hidden="true">
+                <div class="hero-photo"></div>
+            </div>
+            <div class="petals" aria-hidden="true" id="petals"></div>
+            <div class="wrap">
+                <h1>
+                    <span class="copy-line" data-reveal>うるおうたび、</span>
+                    <span class="copy-line" data-reveal style="--delay:180ms">わたしは、もっと好きになる。</span>
+                </h1>
+                <p class="hero-text">
+                    <span class="copy-line" data-reveal style="--delay:360ms">忙しい毎日でも、肌は変わる。わたしも変わる。</span>
+                    <span class="copy-line" data-reveal style="--delay:500ms">自然の恵みと美容科学が出会う、</span>
+                    <span class="copy-line" data-reveal style="--delay:640ms">あなたのためのスキンケア。</span>
+                </p>
+                <div data-reveal style="--delay:780ms">
+                    <a class="pill" href="#products">今すぐはじめる <span class="arrow">→</span></a>
+                </div>
+                <div class="badges" data-reveal style="--delay:900ms">
+                    <span>植物の恵み</span><span>心地よいうるおい</span><span>毎日の肌習慣に</span>
+                </div>
+            </div>
+            <div class="hero-side" data-reveal style="--delay:1000ms">
+                今日の私が、<br>明日の私をつくる。<br>
+                うるおいがめぐる肌は、<br>もっと自由に、<br>もっと前向きに。
+                <em>Live your beauty</em>
+            </div>
+            <a class="scroll-cue" href="#feature" aria-label="次のセクションへ">SCROLL</a>
+        </section>
+
+        <section class="feature" id="feature">
+            <div class="wrap">
+                <div data-reveal>
+                    <h2>新しい、<br>うるおいのかたち。</h2>
+                    <p>自然由来の成分と、美容科学の発想で。<br>
+                        毎日の肌に、心地よいうるおいを。<br>みずみずしく、健やかな素肌へ。</p>
+                    <a class="outline" href="#concept">LUMÉAのこだわり　→</a>
+                </div>
+                <div class="benefits" data-reveal>
+                    <p><b>01</b>光を味方に、<br>明るい印象の肌へ</p>
+                    <p><b>02</b>うるおいを満たす、<br>毎日のスキンケア</p>
+                    <p><b>03</b>乾燥から肌を守り、<br>健やかな状態をキープ</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="concept" id="concept">
+            <div class="concept-image" id="concept-image"></div>
+            <div class="wrap">
+                <div data-reveal>
+                    <div class="label">CONCEPT</div>
+                    <h2>すこやかな肌は、<br>人生までも美しくする。</h2>
+                    <p>LUMÉAは、肌の美しさを通して、<br>
+                        一人ひとりの毎日が、少しでも前向きで輝くものになるように。<br>
+                        自然の恵みと美容科学の知見を融合し、<br>
+                        心地よく続けられるスキンケアを提案しています。</p>
+                </div>
+                <div class="concept-side" data-reveal>肌から、<br>こころまで、<br>満たされていく。</div>
+            </div>
+        </section>
+
+        <section class="products" id="products">
+            <div class="wrap">
+                <div class="section-head" data-reveal>
+                    <div>
+                        <div class="label">PRODUCTS</div>
+                        <h2>肌が求める、シンプルで確かな答え。</h2>
+                    </div>
+                    <p>毎日のスキンケアで、肌は変わる。<br>うるおい・ハリをバランスよく。</p>
+                </div>
+                <div class="grid4" id="product-grid"></div>
+            </div>
+        </section>
+
+        <section class="how" id="how">
+            <div class="wrap">
+                <div data-reveal>
+                    <div class="label">HOW TO USE</div>
+                    <h2>美しさが巡る、3つのステップ。</h2>
+                </div>
+                <div class="grid3" id="step-grid"></div>
+            </div>
+        </section>
+
+        <section class="ingredients" id="ingredients">
+            <div class="wrap">
+                <div data-reveal>
+                    <div class="label">INGREDIENTS</div>
+                    <h2>自然と科学が出会い、生まれた処方。</h2>
+                </div>
+                <div class="grid3" id="ingredient-grid"></div>
+            </div>
+        </section>
+
+        <section class="results">
+            <div class="wrap">
+                <div data-reveal>
+                    <div class="label">BEFORE / AFTER</div>
+                    <h2>肌と向き合う、毎日の習慣。</h2>
+                </div>
+                <div class="grid3" id="result-grid"></div>
+                <p class="notice">※生成したイメージ画像です。実際の使用結果や効果を示すものではありません。</p>
+            </div>
+        </section>
+
+        <section class="reviews" id="reviews">
+            <div class="wrap">
+                <div data-reveal>
+                    <div class="label">REVIEWS</div>
+                    <h2>愛用者の声</h2>
+                </div>
+                <div class="grid3" id="review-grid"></div>
+                <p class="notice">※人物・コメント・評価はデザイン確認用のサンプルです。</p>
+            </div>
+        </section>
+
+        <section class="diagnosis" id="diagnosis">
+            <div class="wrap">
+                <div data-reveal>
+                    <div class="label">SKIN DIAGNOSIS</div>
+                    <h2>あなたの肌に、<br>本当に必要なものは？</h2>
+                    <p>3つの質問から、あなたに合うケアを探します。</p>
+                    <button class="pill" id="start">肌診断をはじめる <span class="arrow">→</span></button>
+                </div>
+                <div class="quiz" aria-live="polite">
+                    <h3 id="number"></h3>
+                    <p id="question"></p>
+                    <div class="quiz-options" id="options"></div><small id="progress"></small>
+                </div>
+                <div class="photo" role="img" aria-label="花に囲まれた女性" style="--x:100%;--y:66.6667%"></div>
+            </div>
+        </section>
+
+        <section class="news" id="news">
+            <div class="wrap">
+                <div data-reveal>
+                    <div class="label">NEWS</div>
+                    <h2>お知らせ</h2>
+                </div>
+                <div class="grid3" id="news-grid"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-row">
+            <a class="logo" href="#top">LUMÉA<small>SKIN RITUAL FOR A BRIGHTER YOU</small></a>
+            <div class="footer-links">
+                <a href="#products">PRODUCT</a><a href="#concept">CONCEPT</a>
+                <a href="#ingredients">INGREDIENTS</a><a href="#reviews">REVIEWS</a>
+                <a href="#news">NEWS</a><a href="#top">PAGE TOP ↑</a>
+            </div>
+        </div>
+        <p>© LUMÉA. All Rights Reserved.</p>
+    </footer>
+    <div class="demo">デザインサンプルです。商品情報・価格・成分・ニュースは仮の内容です。</div>
+
+    <script>
+        const photo = (i, alt, frame = true) => {
+            const x = (i % 4) * 100 / 3;
+            const y = Math.floor(i / 4) * 100 / 3;
+            const content = `<div class="photo" role="img" aria-label="${alt}" style="--x:${x}%;--y:${y}%"></div>`;
+            return frame ? `<div class="visual">${content}</div>` : content;
+        };
+        const reveal = i => `data-reveal style="--delay:${i * 90}ms"`;
+
+        document.getElementById("concept-image").innerHTML =
+            photo(10, "空を仰ぐ女性", false);
+
+        const products = [
+            ["バランシング グロウエッセンス", "みずみずしいうるおいを届ける美容液。", "保湿", "透明感", "4,950"],
+            ["リペアモイスチャークリーム", "うるおいを閉じ込め、ふっくらとした印象へ。", "ハリ", "保湿", "5,280"],
+            ["トーンアップUVベース", "毎日のUVケアを、心地よい習慣に。", "UVケア", "化粧下地", "3,850"],
+            ["ブライトニングセラム", "なめらかな肌へ。毎日の美容ケアに。", "美容ケア", "うるおい", "6,380"]
+        ];
+        document.getElementById("product-grid").innerHTML = products.map((p, i) =>
+            `<article class="card product" ${reveal(i)}>
+  ${photo(i, p[0])}<h3>${p[0]}</h3><p>${p[1]}</p>
+  <div class="tags"><span>${p[2]}</span><span>${p[3]}</span></div>
+  <div class="price"><span>¥${p[4]} <small>（税込）</small></span>
+  <a href="#diagnosis" aria-label="${p[0]}の肌診断">＋</a></div></article>`
+        ).join("");
+
+        const steps = [
+            ["整える", "洗顔後、化粧水で肌をやさしく整え、うるおいの土台をつくります。"],
+            ["満たす", "美容液を顔全体になじませ、角質層までうるおいを届けます。"],
+            ["閉じ込める", "クリームでうるおいをキープし、健やかな肌へ。"]
+        ];
+        document.getElementById("step-grid").innerHTML = steps.map((p, i) =>
+            `<article class="card step" ${reveal(i)}>${photo(i + 4, p[0])}
+  <div class="step-body"><b><small>STEP 0${i + 1}</small>${p[0]}</b>
+  <p>${p[1]}</p></div></article>`
+        ).join("");
+
+        const ingredients = [
+            ["ツバキエキス", "植物の恵みを、毎日の保湿ケアへ。"],
+            ["ヒアルロン酸", "うるおいを抱える保湿成分。肌の水分を保ちます。"],
+            ["植物由来セラミド", "乾燥から肌を守る、毎日のスキンケアに。"]
+        ];
+        document.getElementById("ingredient-grid").innerHTML = ingredients.map((p, i) =>
+            `<article class="card ingredient" ${reveal(i)}>
+  ${photo(i + 7, p[0])}<div class="body"><h3>${p[0]}</h3><p>${p[1]}</p></div></article>`
+        ).join("");
+
+        const resultText = [
+            "乾燥が気になる肌に、うるおいを。",
+            "肌と向き合う、心地よいひととき。",
+            "健やかな肌を目指す毎日の習慣。"
+        ];
+        document.getElementById("result-grid").innerHTML = ["01", "07", "28"].map((day, i) =>
+            `<article class="person" ${reveal(i)}>${photo(12, "人物イメージ")}
+  <div><h3>DAY ${day}</h3><p>${resultText[i]}</p></div></article>`
+        ).join("");
+
+        const reviews = [
+            ["朝の肌が、心地よく感じられる。", "すっと肌になじむ使い心地。忙しい朝にも取り入れやすいスキンケアです。"],
+            ["毎日のケアが楽しみになりました。", "なめらかなテクスチャー。自分の肌と向き合う時間ができました。"],
+            ["肌だけでなく、気持ちも前向きに。", "毎日のスキンケアが、私の小さな楽しみになりました。"]
+        ];
+        document.getElementById("review-grid").innerHTML = reviews.map((p, i) =>
+            `<article class="card review" ${reveal(i)}>
+  <div class="review-top">${photo(12 + i, "レビュー人物イメージ", false)}
+  <div><h3>「${p[0]}」</h3><span class="stars">★★★★★</span></div></div>
+  <p>${p[1]}</p></article>`
+        ).join("");
+
+        const news = [
+            [0, "2024-03-01", "春の限定セットが登場", "春のスキンケアを彩る、特別なセット。"],
+            [15, "2024-02-15", "ポップアップストアのお知らせ", "LUMÉAの世界を体験するひとときを。"],
+            [2, "2024-01-20", "トーンアップUVベース", "毎日のUVケアを、もっと心地よく。"]
+        ];
+        document.getElementById("news-grid").innerHTML = news.map((p, i) =>
+            `<article class="card news-card" ${reveal(i)}>
+  ${photo(p[0], p[2], false)}<div>
+  <time datetime="${p[1]}">${p[1].replaceAll("-", ".")}</time>
+  <h3>${p[2]}</h3><p>${p[3]}</p></div></article>`
+        ).join("");
+
+        /* モバイルメニュー */
+        const menu = document.querySelector(".menu");
+        const nav = document.querySelector("nav");
+        menu.addEventListener("click", () => {
+            menu.setAttribute("aria-expanded", String(nav.classList.toggle("open")));
+        });
+        nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+            nav.classList.remove("open");
+            menu.setAttribute("aria-expanded", "false");
+        }));
+
+        /* 簡易肌診断 */
+        const questions = [
+            ["今、一番気になることは？", ["乾燥", "毛穴", "くすみ", "ハリ不足"]],
+            ["好きな使い心地は？", ["さっぱり", "しっとり", "なめらか"]],
+            ["ケアするタイミングは？", ["朝", "夜", "朝と夜"]]
+        ];
+        let step = 0;
+        let answers = [];
+        const options = document.getElementById("options");
+
+        function renderQuiz() {
+            document.getElementById("number").textContent = `0${step + 1}`;
+            document.getElementById("question").textContent = questions[step][0];
+            document.getElementById("progress").textContent = `${step + 1} / 3`;
+            options.replaceChildren();
+            questions[step][1].forEach(text => {
+                const button = document.createElement("button");
+                button.textContent = text;
+                button.onclick = () => {
+                    answers.push(text);
+                    if (step < 2) {
+                        step++;
+                        renderQuiz();
+                    } else {
+                        finishQuiz();
+                    }
+                };
+                options.append(button);
+            });
+        }
+        function finishQuiz() {
+            const index = {"乾燥": 1, "毛穴": 0, "くすみ": 3, "ハリ不足": 1}[answers[0]];
+            document.getElementById("number").textContent = "YOUR RITUAL";
+            document.getElementById("question").textContent =
+                products[index][0] + "をチェック";
+            document.getElementById("progress").textContent =
+                "デザイン用の簡易診断です。";
+            options.replaceChildren();
+            const link = document.createElement("a");
+            link.href = "#products";
+            link.className = "pill";
+            link.textContent = "商品を見る →";
+            const reset = document.createElement("button");
+            reset.textContent = "もう一度";
+            reset.onclick = resetQuiz;
+            options.append(link, reset);
+        }
+        function resetQuiz() {
+            step = 0;
+            answers = [];
+            renderQuiz();
+        }
+        document.getElementById("start").onclick = () => {
+            resetQuiz();
+            options.querySelector("button").focus();
+        };
+        renderQuiz();
+
+        /* 花びら */
+        const petals = document.getElementById("petals");
+        for (let i = 0; i < 8; i++) {
+            const petal = document.createElement("span");
+            petal.className = "petal";
+            petal.style.cssText = `
+    --left:${8 + i * 12}%;
+    --size:${10 + (i % 3) * 6}px;
+    --blur:${i % 3 === 0 ? 1.4 : .2}px;
+    --duration:${17 + i * 2}s;
+    --start:${-i * 4}s;
+  `;
+            petals.append(petal);
+        }
+
+        /* スクロール表示と控えめなパララックス */
+        const motion = matchMedia("(prefers-reduced-motion: reduce)");
+        const targets = [...document.querySelectorAll("[data-reveal]")];
+        const hero = document.querySelector(".hero");
+        let observer;
+        let frame = 0;
+
+        function updateParallax() {
+            frame = 0;
+            const rect = hero.getBoundingClientRect();
+            if (motion.matches || rect.bottom <= 0 || rect.top >= innerHeight) return;
+            const offset = Math.max(-24, Math.min(24, -rect.top * .055));
+            hero.style.setProperty("--parallax", `${offset}px`);
+        }
+        function scheduleParallax() {
+            if (!frame && !motion.matches) frame = requestAnimationFrame(updateParallax);
+        }
+        function setupMotion() {
+            if (observer) observer.disconnect();
+
+            if (motion.matches || !("IntersectionObserver" in window)) {
+                document.documentElement.classList.remove("js");
+                targets.forEach(el => el.classList.add("visible"));
+                hero.style.setProperty("--parallax", "0px");
+                return;
+            }
+
+            observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                });
+            }, {threshold: .08});
+
+            targets.forEach(el => {
+                if (!el.classList.contains("visible")) observer.observe(el);
+            });
+            document.documentElement.classList.add("js");
+            scheduleParallax();
+        }
+
+        addEventListener("scroll", scheduleParallax, {passive: true});
+        addEventListener("resize", scheduleParallax, {passive: true});
+        motion.addEventListener("change", setupMotion);
+        setupMotion();
+    </script>
+</body>
+
+</html>
